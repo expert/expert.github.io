@@ -131,7 +131,7 @@
         $contactFrom.validate({
             submitHandler: function(form) {
                 data = $contactFrom.serialize();
-                $('.js-contact-form').html("<div class='form-success'><h3>Спасибо</h3><p>Сообшение было отправлено</p></div>");
+                $('.js-contact-form').html("<div class='form-success'><h3>Thank you</h3><p>Your message was sent</p></div>");
 
                 $.ajax({
                     type: "POST",
