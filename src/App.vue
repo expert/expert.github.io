@@ -39,7 +39,8 @@ import {
   <div>
     <Button>Click me</Button>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <button class="btn">Button</button>
+
 </template>
 
 <style scoped>
