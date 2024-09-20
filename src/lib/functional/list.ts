@@ -21,16 +21,16 @@ export const cons = <A>(head: A, tail: List<A>): List<A> => ({
 export const isNill = <A>(xs: List<A>): xs is Nill => xs._tag === 'Nill'
 
 
-// Example:
+// Usage Examples:
 
 // const myList = cons(1, cons(3, cons(5, nill)))
 // // console.log(JSON.stringify(myList, null, 2))
 
-// type ShowList = <A>(xs: List<A>) => string
-// const showList: ShowList = (xs): string => {
-//   return isNill(xs) 
-//     ? '' 
-//     : `${xs.head}${isNill(xs.tail) ? '' : ', ' + showList(xs.tail)}`
-// }
+export type ShowList = <A>(xs: List<A>) => string
+export const showList: ShowList = (xs): string => {
+  return isNill(xs) 
+    ? '' 
+    : `${xs.head}${isNill(xs.tail) ? '' : ', ' + showList(xs.tail)}`
+}
 
 // console.log(showList(myList))

@@ -4,4 +4,4 @@
 // import './option'
 // import './either'
 // import './list'
-import './functor'
+import './hkt'

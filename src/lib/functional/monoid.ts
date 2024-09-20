@@ -2,25 +2,25 @@
 // https://www.youtube.com/watch?v=QpibvchSlg0&list=PLuPevXgCPUIMbCxBEnc1dNwboH6e2ImQo&index=19
 
 import { List, cons, nill } from "./list";
-import { match } from "./match";
+import { matchList } from "./match";
 
 type AddAll = (xs: List<number>) => number
 const addAll: AddAll = 
-  match(
+  matchList(
     () => 0,
     (head: number, tail: List<number>) => head + addAll(tail)
   )
 
 type MultyplyAll = (xs: List<number>) => number
 const multiplyAll: MultyplyAll = 
-  match(
+  matchList(
     () => 1,
     (head: number, tail: List<number>) => head * multiplyAll(tail)
   )
 
 type AppendAll = (xs: List<string>) => string
 const appendAll: AppendAll = 
-  match(
+  matchList(
     () => '',
     (head: string, tail: List<string>) => head + appendAll(tail)
   )
@@ -38,7 +38,7 @@ const concatAll =
   <A>(s: Semigroup<A>) =>
     (startsWith: A) =>
       (xs: List<A>): A =>
-        match(
+        matchList(
           () => startsWith,
           (head: A, tail: List<A>) => s.concat(head, concatAll(s)(startsWith)(tail))
         )(xs)
@@ -54,7 +54,7 @@ export interface Monoid<A> extends Semigroup<A> {
 const concatAll2 = 
   <A>(m: Monoid<A>) =>
       (xs: List<A>): A => 
-        match(
+        matchList(
           () => m.empty,
           (head: A, tail: List<A>) => m.concat(head, concatAll2(m)(tail))
         )(xs)

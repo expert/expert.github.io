@@ -46,7 +46,6 @@ const divideTwoIfEven2 = function (x: number): Either<string, number> {
   }
 }
 
-console.log(divideTwoIfEven2(0))
 
 type Increment = (x: number) => number
 const increment: Increment = (x) => x + 1
@@ -56,4 +55,7 @@ const composed = compose(
     divideTwoIfEven2
   )
 
-console.log(composed(8))
+// Usage example
+
+// console.log(divideTwoIfEven2(0))
+// console.log(composed(8))

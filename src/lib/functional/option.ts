@@ -5,14 +5,12 @@ import { compose } from './compose'
 
 type DivideTwo = (x: number) => number
 const divideTwo: DivideTwo = x => 2 / x
-console.log(divideTwo(8))
 
 type Increment = (x: number) => number
 const increment: Increment = x => x + 1
 
 
 const composed = compose(increment, divideTwo)
-console.log(composed(8))
 
 export type Option<A> = Some<A> | None
 export interface Some<A> {
@@ -37,5 +35,7 @@ const composed2 = compose(
   divideTwo2
 )
 
-console.log('composed2(5)')
-console.log(composed2(10))
+// Usage examples:
+// console.log(composed(8))
+// console.log(divideTwo(8))
+// 
