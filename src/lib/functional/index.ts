@@ -1,0 +1,7 @@
+// import './compose'
+// import './currying'
+// import './recursion'
+// import './option'
+// import './either'
+// import './list'
+import './functor'
