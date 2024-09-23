@@ -18,16 +18,16 @@ declare module 'fp-ts/HKT' {
   }
 }
 
-interface Functor<F> {
+export interface Functor<F> {
   URI: F,
   map: <A, B>(f: (x: A) => B) => (fa: HKT<F, A>) => HKT<F, B>
 }
 
-interface Functor1<F extends URIS> {
+export interface Functor1<F extends URIS> {
   URI: F
   map: <A, B>(f: (x: A) => B) => (fa: Kind<F, A>) => Kind<F, B>
 }
-interface Functor2<F extends URIS2> {
+export interface Functor2<F extends URIS2> {
   URI: F
   map: <E, A, B>(f: (x: A) => B) => (fa: Kind2<F,E,A>) => Kind2<F,E,B>
 }
@@ -39,14 +39,14 @@ function lift<F>(F: Functor<F>): <A,B>(f: (x: A)=>B) => (fa: HKT<F,A>) => HKT<F,
   return f => fa => F.map(f)(fa)
 }
 
-const optionFunctor: Functor1<'Option'> = {
+export const optionFunctor: Functor1<'Option'> = {
   URI: 'Option',
   map: f => match(
     () => none,
     (a) => some(f(a))
   )
 }
-const listFunctor: Functor1<'List'> = {
+export const listFunctor: Functor1<'List'> = {
   URI: 'List',
   map: f => matchList(
     () => nill,
@@ -54,7 +54,7 @@ const listFunctor: Functor1<'List'> = {
   )
 }
 
-const eitherFunctor: Functor2<'Either'> = {
+export const eitherFunctor: Functor2<'Either'> = {
   URI: 'Either',
   map: f => matchEither(
     (e) => left(e),
