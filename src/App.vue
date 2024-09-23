@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// import HelloWorld from './components/HelloWorld.vue'
 import { Button } from '@/components/ui/button'
 import {
   NavigationMenu,
@@ -9,32 +8,41 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
+import { AppScene } from "@/components/ui/scene"
+import { Hero } from "@/components/ui/hero"
+import { Journey } from "@/components/ui/journey"
 
 </script>
 
 <template>
+  <AppScene></AppScene>
+
   <NavigationMenu>
     <NavigationMenuList>
       <NavigationMenuItem>
-        <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
+        <NavigationMenuTrigger>Presentation</NavigationMenuTrigger>
         <NavigationMenuContent>
           <NavigationMenuLink>Link</NavigationMenuLink>
         </NavigationMenuContent>
       </NavigationMenuItem>
       <NavigationMenuItem>
-        <NavigationMenuTrigger>Item 2</NavigationMenuTrigger>
+        <NavigationMenuTrigger>Resume</NavigationMenuTrigger>
         <NavigationMenuContent>
           <NavigationMenuLink>Link</NavigationMenuLink>
         </NavigationMenuContent>
       </NavigationMenuItem>
       <NavigationMenuItem>
-        <NavigationMenuTrigger>Item 3</NavigationMenuTrigger>
+        <NavigationMenuTrigger>Contact</NavigationMenuTrigger>
         <NavigationMenuContent>
           <NavigationMenuLink>Link</NavigationMenuLink>
         </NavigationMenuContent>
       </NavigationMenuItem>
     </NavigationMenuList>
   </NavigationMenu>
+  <div class="grid grid-cols-2 relative z-10">
+    <Hero />
+    <Journey />
+  </div>
   
   <div>
     <Button>Click me</Button>
