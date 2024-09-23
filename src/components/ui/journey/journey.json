@@ -1,0 +1,96 @@
+[
+  {
+    "title": "Explore my Journey",
+    "description": "About me",
+    "stepper": {
+      "title": "Step 1",
+      "description": "This is the first step"
+    },
+    "body": [
+      {
+        "tag": "h3",
+        "css": "card-title",
+        "value": "Programming"
+      },
+      {
+        "tag": "p",
+        "value": "Experience in programming languages JS, specifically ECMA2017, Typescript, Node.js, Vue.js, Koa.js. Also experienced CSS3/HTML5 coder. Soft skills as PHP, Mysql, MongoDB, React.js, CMS WordPress."
+      },
+      {
+        "tag": "h3",
+        "css": "card-title",
+        "value": "Self-development"
+      },
+      {
+        "tag": "p",
+        "value": "During a rapid development of technologies I’m staying tuned with the latest stack, and implementing them in my study project or production. This means if the tools are not required to my current dev stack, I’m open to learn and use them nowadays. Like React.js or Angular. Or any other tools."
+      },
+      {
+        "tag": "h3",
+        "css": "card-title",
+        "value": "Communication"
+      },
+      {
+        "tag": "p",
+        "value": "Ability​ ​to work alongside other people, organize time and team. Planning current workflow with Agile software development."
+      },
+      {
+        "tag": "h3",
+        "css": "card-title",
+        "value": "Best practice"
+      },
+      {
+        "tag": "p",
+        "value": "Ability to do my job at a high level standard and company requirements. Use a tools to check my code style and write E2E tests."
+      },
+      {
+        "tag": "h3",
+        "css": "card-title",
+        "value": "Experience"
+      },
+      {
+        "tag": "p",
+        "value": "10+ years as Frontend and Fullstack developer. Built websites from simple to high level of complexity. The count of them is hundreds. Also I built a Product software from scratch, which uses a +5k users around the world.'"
+      }
+    ],
+    "skills": ["Vue.JS", "Three.js"]
+  },
+  {
+    "title": "Start career",
+    "description": "About me",
+    "stepper": {
+      "title": "Step 2",
+      "description": "This is the second step"
+    },
+    "body": [
+      {
+        "tag": "h3",
+        "value": "Web Developer"
+      },
+      {
+        "tag": "p",
+        "value": "As a CSS/HTML/JS developer, I specialized in creating dynamic websites tailored for Real Estate agencies. Proficiently translating PSD designs into HTML, I seamlessly integrate them into backend CMS and frameworks. My expertise extends to working with CMS platforms like MODX and WordPress, as well as frameworks including Kohana, Zend, and Symfony. I am also well-versed in template languages like Twig and Smarty."
+      }
+    ],
+    "skills": ["CSS3, ", "HTML5", "BEM", "Sass", "Smarty"]
+  },
+  {
+    "title": "Step 3",
+    "description": "About me",
+    "stepper": {
+      "title": "Step 3",
+      "description": "This is the third step"
+    },
+    "body": [
+      {
+        "tag": "h3",
+        "value": "Web Developer"
+      },
+      {
+        "tag": "p",
+        "value": "As a CSS/HTML/JS developer, I specialized in creating dynamic websites tailored for Real Estate agencies. Proficiently translating PSD designs into HTML, I seamlessly integrate them into backend CMS and frameworks. My expertise extends to working with CMS platforms like MODX and WordPress, as well as frameworks including Kohana, Zend, and Symfony. I am also well-versed in template languages like Twig and Smarty."
+      }
+    ],
+    "skills": ["CSS3, ", "HTML5", "BEM", "Sass", "Smarty"]
+  }
+]

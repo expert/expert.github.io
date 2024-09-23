@@ -10,7 +10,7 @@ const double: Double = (x: number) => x*2
 const data1: Option<number> = some(12)
 const output1 = optionFunctor.map(double)(data1)
 
-console.log(output1)
+// console.log(output1)
 
 type ComposeR = <A,B,C>(f: (a: A)=>B, g: (b: B)=>C) => ((a: A)=>C)
 const composeR: ComposeR = (f, g) => a => g(f(a))
@@ -37,4 +37,4 @@ const optionListFunctor: Functor1<'OptionList'> = {
 const output3 = optionListFunctor.map(double)(data2)
 
 
-console.log(JSON.stringify(output3, null, 2))
+// console.log(JSON.stringify(output3, null, 2))
