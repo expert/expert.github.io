@@ -1,4 +1,3 @@
-import { compose } from "./compose";
 import { Functor1, listFunctor, optionFunctor } from "./hkt";
 import { List, cons, nill } from "./list";
 import { Option, some } from "./option";

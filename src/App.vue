@@ -9,41 +9,29 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 import { AppScene } from "@/components/ui/scene"
-import { Hero } from "@/components/ui/hero"
-import { Journey } from "@/components/ui/journey"
+import HomeView from "@/views/HomeView.vue"
 
 </script>
 
 <template>
   <AppScene></AppScene>
-
   <NavigationMenu>
     <NavigationMenuList>
       <NavigationMenuItem>
-        <NavigationMenuTrigger>Presentation</NavigationMenuTrigger>
-        <NavigationMenuContent>
-          <NavigationMenuLink>Link</NavigationMenuLink>
-        </NavigationMenuContent>
+        <NavigationMenuTrigger><RouterLink to="/">Presentation</RouterLink></NavigationMenuTrigger>
       </NavigationMenuItem>
       <NavigationMenuItem>
-        <NavigationMenuTrigger>Resume</NavigationMenuTrigger>
-        <NavigationMenuContent>
-          <NavigationMenuLink>Link</NavigationMenuLink>
-        </NavigationMenuContent>
+        <RouterLink to="/resume">Resume</RouterLink>
       </NavigationMenuItem>
+
       <NavigationMenuItem>
         <NavigationMenuTrigger>Contact</NavigationMenuTrigger>
-        <NavigationMenuContent>
-          <NavigationMenuLink>Link</NavigationMenuLink>
-        </NavigationMenuContent>
       </NavigationMenuItem>
     </NavigationMenuList>
   </NavigationMenu>
-  <div class="grid grid-cols-2 relative z-10">
-    <Hero />
-    <Journey />
-  </div>
-  
+  <main> 
+    <RouterView />
+  </main>
   <div>
     <Button>Click me</Button>
   </div>
