@@ -8,13 +8,12 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
-import { AppScene } from "@/components/ui/scene"
-import HomeView from "@/views/HomeView.vue"
+import { PresentationScene } from "@/components/ui/scene"
 
 </script>
 
 <template>
-  <AppScene></AppScene>
+  <PresentationScene></PresentationScene>
   <NavigationMenu>
     <NavigationMenuList>
       <NavigationMenuItem>

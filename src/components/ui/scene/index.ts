@@ -1,1 +1,1 @@
-export { default as AppScene} from './Scene.vue'
+export { default as PresentationScene } from './PresentationScene.vue'
