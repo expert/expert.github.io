@@ -12,7 +12,7 @@ export default defineConfig({
       plugins: [tailwind(), autoprefixer()],
     },
   },
-  plugins: [vue(), glsl()],
+  plugins: [glsl(), vue()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

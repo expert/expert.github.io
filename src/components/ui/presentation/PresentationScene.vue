@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, useTemplateRef  } from 'vue';
-import { initialize } from './main-three'
+import { initialize } from './main'
 
 const canvas = useTemplateRef('canvas')
 onMounted(() => {
@@ -10,8 +10,6 @@ onMounted(() => {
 </script>
 <template>
   <div class="h-full w-full absolute">
-    <!-- <img class="inset-0 h-full w-full object-cover" src="/assets/images/scene.jpg" alt="scene"> -->
       <div ref="canvas" class=" h-full w-full"></div>
   </div>
 </template>
-https://arc.net/e/EDA6217F-0684-4D08-80EC-3120BDC26AA7

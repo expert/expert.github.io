@@ -8,36 +8,42 @@ import { type CatmullRomCurve3 } from 'three';
 import { useMouse } from '@vueuse/core';
 import particlesVertex from './shaders/particles.vertex.glsl'
 import particlesFragment from './shaders/particles.fragment.glsl'
+import { initializeTube, animateTube } from './BrainTube';
 
 const randomRange = (min: number, max: number): number => Math.random() * (max - min) + min
-let curves = []
-for(let i = 0; i < 100; i++) {
-	let points =[]
-	let range = randomRange(0.5, 1)
-	for(let j = 0; j < 100; j++) {
-		points.push(
-			new THREE.Vector3().setFromSphericalCoords(
-				1,
-				Math.PI - (j / 100) * Math.PI * range ,
-				(i / 100) * Math.PI * 2
-			)
-		)
-	}	
 
-	let tmpCurve = new THREE.CatmullRomCurve3(points)
-	curves.push(tmpCurve)
-}
+// Spherical curves
+// let curves = []
+// for(let i = 0; i < 100; i++) {
+// 	let points =[]
+// 	let range = randomRange(0.5, 1)
+// 	for(let j = 0; j < 100; j++) {
+// 		points.push(
+// 			new THREE.Vector3().setFromSphericalCoords(
+// 				1,
+// 				Math.PI - (j / 100) * Math.PI * range ,
+// 				(i / 100) * Math.PI * 2
+// 			)
+// 		)
+// 	}	
 
-let brainCurves: CatmullRomCurve3[] = []
-console.log('Data.economics', Data.economics)
-Data.economics[0].paths.forEach((path) => {
-	let points = []
-	for (let i = 0; i < path.length; i +=3) {
-			points.push(new THREE.Vector3(path[i], path[i + 1], path[i + 2]))
-	}
-	brainCurves.push(new THREE.CatmullRomCurve3(points))
-})
-// console.log('brainCurves', brainCurves)
+// 	let tmpCurve = new THREE.CatmullRomCurve3(points)
+// 	curves.push(tmpCurve)
+// }
+
+// console.log('Data.economics', Data.economics)
+const catmullCurvesAdapter: (data: number[][]) 
+	=> CatmullRomCurve3[] = 
+		(data) => 
+			data.map((path) => {
+				let points = []
+				for (let i = 0; i < path.length; i +=3) {
+						points.push(new THREE.Vector3(path[i], path[i + 1], path[i + 2]))
+				}
+				return new THREE.CatmullRomCurve3(points)
+			})
+
+const brainCurves = catmullCurvesAdapter(Data.economics[0].paths)
 
 const myPoints = []
 let density = 10;
@@ -92,6 +98,13 @@ const BrainParticles = function(allthecurves: []) {
 	return new THREE.Points(geometry, brainParticleMaterial)
 }
 
+const registerComponent = <T>(init: () => T, animate: (component: T, time: number) => void) => {
+	const component = init();
+	return (time: number) => {
+			animate(component, time);
+	};
+};
+
 
 export const initialize = (elRef: Ref) => {
 	const scene = new THREE.Scene();
@@ -99,22 +112,15 @@ export const initialize = (elRef: Ref) => {
 
 	const renderer = new THREE.WebGLRenderer();
 	renderer.setSize( window.innerWidth, window.innerHeight );
-	renderer.setAnimationLoop( animate );
 
-	
+
 	elRef.value.appendChild( renderer.domElement );
 
 	const controls = new OrbitControls( camera, renderer.domElement );
 	const loader = new GLTFLoader();
 	
-	console.log('Data', Data.economics)
-
-	// const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-	// const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-	// const cube = new THREE.Mesh( geometry, material );
-	// scene.add( cube );
-	const tubes = Tubes(brainCurves)
-	tubes.forEach((tube) => scene.add(tube))
+	// const tubes = Tubes(brainCurves)
+	// tubes.forEach((tube) => scene.add(tube))
 
 	const particles = BrainParticles(brainCurves)
 	scene.add(particles)
@@ -124,22 +130,23 @@ export const initialize = (elRef: Ref) => {
 
 	let currentPositions = particles.geometry.attributes.position.array
 
-	const { x, y, sourceType } = useMouse()
+	const { x, y } = useMouse()
 	const width = window.innerWidth;
 	const height = window.innerHeight;
-	
-	function animate(time) {
-		// cube.rotation.x += 0.01;
-		// cube.rotation.y += 0.01;
-		// console.log(x.value, y.value)
-		const mouseX = (x.value / width) * 2 - 1
-		const mouseY = -(y.value / height) * 2 + 1
-		const mouse = new THREE.Vector3(mouseX, mouseY, 0)
 
-		tubes.forEach((tube) => {
-			tube.material.uniforms.time.value = time 
-			tube.material.uniforms.mouse.value = mouse
-		})
+	const animateTubes = registerComponent(
+		() => initializeTube(scene, brainCurves),
+		(tubes, time) => {
+			const mouseX = (x.value / width) * 2 - 1
+			const mouseY = -(y.value / height) * 2 + 1
+			const mouse = new THREE.Vector3(mouseX, mouseY, 0)
+
+			animateTube(tubes, time, mouse)
+	})
+
+	
+	function animate(time: number) {
+		animateTubes(time)
 
 		for (let i = 0; i < myPoints.length; i++) {
 			myPoints[i].currentPosition += myPoints[i].speed
@@ -154,6 +161,8 @@ export const initialize = (elRef: Ref) => {
 
 
 		particles.geometry.attributes.position.needsUpdate = true
+
 		renderer.render( scene, camera );
 	}
+	renderer.setAnimationLoop( animate );
 }

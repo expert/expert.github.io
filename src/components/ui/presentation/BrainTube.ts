@@ -3,21 +3,7 @@ import * as THREE from 'three'
 import fragmentTube from './shaders/tube.fragment.glsl'
 import vertextube from './shaders/tube.vertex.glsl'
 
-
-export const Tube = function(curve: CatmullRomCurve3) {
-	// let points = []
-	// for(let i = 0; i < 10; i++) {
-	// 	points.push(
-	// 		new THREE.Vector3(
-	// 			(i - 5) * 2,
-	// 			Math.sin(i * 2) * 10 + 5,
-	// 			0
-	// 		)
-	// 	)
-	// }
-
-	// let curve = new THREE.CatmullRomCurve3(points)
-
+const Tube = function(curve: CatmullRomCurve3) {
 	const geometry = new THREE.TubeGeometry(curve, 64, 0.001, 3, false );
 	// const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 	const brainMaterial = new THREE.ShaderMaterial({
@@ -41,27 +27,25 @@ export const Tube = function(curve: CatmullRomCurve3) {
 	return new THREE.Mesh( geometry, brainMaterial );
 }
 
-export const Tubes = function(brainCurves) {
-	return brainCurves.map(Tube)
+const Tubes = function(curves: CatmullRomCurve3[]) {
+	return curves.map(Tube)
 }
 
+const initializeTube = (scene: THREE.Scene, curves: CatmullRomCurve3[]) => {
+	const tubes = Tubes(curves);  // Assuming brainCurves are passed in
+	tubes.forEach((tube: THREE.Mesh) => {
+			(tube.material as THREE.ShaderMaterial).uniforms.mouse = { value: new THREE.Vector3(0, 0, 0) };
+			(tube.material as THREE.ShaderMaterial).uniforms.time = { value: 0 };
+	});
+	tubes.forEach((tube: THREE.Mesh) => scene.add(tube))
+	return tubes;
+};
 
+const animateTube = (tubes: THREE.Mesh[], time: number, mouse: THREE.Vector3) => {
+	tubes.forEach((tube) => {
+			(tube.material as THREE.ShaderMaterial).uniforms.time.value = time;
+			(tube.material as THREE.ShaderMaterial).uniforms.mouse.value = mouse;
+	});
+};
 
-
-// varying vec2 vUv;
-// uniform float time;
-// varying float vProgress;
-// uniform vec3 mouse;
-// void main() {
-//   vUv = uv;
-//   vProgress = smoothstep(-1.0,1.0, sin(vUv.x * 8. + time * 0.002));
-//   vec3 p = position;
-//   float maxDist = 0.7;
-//   float dist = length(mouse - p);
-//   if (dist < maxDist) {
-//     vec3 dir = normalize(mouse - p);
-//     dir *= (1. - dist/maxDist);
-//     p -= dir;
-//   }
-//   gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
-// }			
+export { initializeTube, animateTube }
