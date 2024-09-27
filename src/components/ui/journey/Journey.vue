@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, reactive, type Reactive } from "vue";
+import { ref, reactive, type Reactive } from "vue";
 import {
   Card,
   CardContent,
