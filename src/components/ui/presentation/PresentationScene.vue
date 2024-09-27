@@ -14,3 +14,4 @@ onMounted(() => {
       <div ref="canvas" class=" h-full w-full"></div>
   </div>
 </template>
+https://arc.net/e/EDA6217F-0684-4D08-80EC-3120BDC26AA7

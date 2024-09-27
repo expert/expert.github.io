@@ -1,5 +1,8 @@
 import { type CatmullRomCurve3 } from 'three';
 import * as THREE from 'three'
+import fragmentTube from './shaders/tube.fragment.glsl'
+import vertextube from './shaders/tube.vertex.glsl'
+
 
 export const Tube = function(curve: CatmullRomCurve3) {
 	// let points = []
@@ -25,41 +28,8 @@ export const Tube = function(curve: CatmullRomCurve3) {
       mouse: { value: new THREE.Vector3(0,0,0)}
 		},
 		// gsls
-		vertexShader: `
-      varying vec2 vUv;
-      uniform float time;
-      varying float vProgress;
-      uniform vec3 mouse;
-      void main() {
-        vUv = uv;
-        vProgress = smoothstep(-1.0,1.0, sin(vUv.x * 8. + time * 0.002));
-        vec3 p = position;
-        float maxDist = 0.05;
-        float dist = length(mouse - p);
-        if (dist < maxDist) {
-          vec3 dir = normalize(mouse - p);
-          dir *= (1. - dist/maxDist);
-          p -= dir*0.03;
-        }
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
-      }			
-
-		`,
-		fragmentShader: `
-			uniform float time;
-			uniform vec3 color; 
-			varying vec2 vUv;
-			varying float vProgress;
-			uniform vec3 mouse;
-			void main (){
-				vec3 color1 = vec3(1.,0.,0.);
-				vec3 color2 = vec3(1.,1.,0.);
-				// vec3 finalColor = mix(color1, color2, vProgress);
-				float hideCorners = smoothstep(0.,0.1, vUv.x) * smoothstep(1., 0.9, vUv.x);
-				vec3 finalColor = mix(color, color * 0.25, vProgress);
-				gl_FragColor = vec4(finalColor, hideCorners);
-			}
-		`,
+		vertexShader:vertextube,
+		fragmentShader: fragmentTube,
 		side: THREE.DoubleSide,
 		transparent: true,
 		depthTest: false,

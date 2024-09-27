@@ -6,6 +6,8 @@ import Data from './data/scene.json'
 import { Tubes } from './BrainTube';
 import { type CatmullRomCurve3 } from 'three';
 import { useMouse } from '@vueuse/core';
+import particlesVertex from './shaders/particles.vertex.glsl'
+import particlesFragment from './shaders/particles.fragment.glsl'
 
 const randomRange = (min: number, max: number): number => Math.random() * (max - min) + min
 let curves = []
@@ -78,27 +80,8 @@ const BrainParticles = function(allthecurves: []) {
 			color: { value: new THREE.Color(0xa3a70a94) }
 		},
 		// gsls
-		vertexShader: `
-			varying vec2 vUv;
-			uniform float time;
-			varying float vProgress;
-			void main() {
-				vUv = uv;
-				gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-				vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-				gl_PointSize = 100.5 * (1. / -mvPosition.z);
-				// gl_PointSize = 50.0;
-			}			
-		`,
-		fragmentShader: `
-			uniform float time;
-			void main (){
-				// vec2 st = gl_PointCoord.xy - 0.5;
-				float disc = length(gl_PointCoord.xy - vec2(0.5));
-				float opacity = 0.3 * smoothstep(0.5,0.4,disc);
-				gl_FragColor = vec4(vec3(opacity),1.);
-			}
-		`,
+		vertexShader: particlesVertex,
+		fragmentShader: particlesFragment,
 		transparent: true,
 		depthTest: false,
 		depthWrite: false,
