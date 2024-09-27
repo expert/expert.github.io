@@ -8,7 +8,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
-import { PresentationScene } from "@/components/ui/scene"
+import { PresentationScene } from "@/components/ui/presentation"
 
 </script>
 
