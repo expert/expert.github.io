@@ -4,7 +4,7 @@ const City = function() {
   console.log('Should start the city')
 }
 
-const initializeCity = (scene: THREE.scene) => {
+const initializeCity = (scene: THREE.Scene) => {
   const city = City()
 
   const cityModel = loadModel('/assets/gltf/city.glb').then(model => {
