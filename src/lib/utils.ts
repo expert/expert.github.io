@@ -11,7 +11,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export const randomRange = (min: number, max: number): number => Math.random() * (max - min) + min
 
-export const catmullCurvesAdapter: (data: number[][]) 
+export const catmullCurveFromPath: (path: number[][]) 
 	=> CatmullRomCurve3[] = 
 		(data) => 
 			data.map((path) => {
