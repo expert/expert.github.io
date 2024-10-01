@@ -1,4 +1,5 @@
-import { type Some, isNone, Option, some } from './../../../../lib/functional/option';
+import { type Some, isNone, Option, some } from '@/lib/functional/option';
+import { type Either, left, right } from '@/lib/functional/either';
 import * as THREE from 'three'
 import gsap from 'gsap';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -25,7 +26,7 @@ const cameraInfo = (data: CameraStep[]): Option<CameraInfo> => {
   }
   return some({
     getStep: (step: number) => {
-      return some(data[step]) ?? none
+      return data[step] ? some(data[step]) : none
     }
   })
 }
@@ -89,27 +90,18 @@ const createCameraPerspective = function(): THREE.PerspectiveCamera {
   return camera
 }
 
-const cameraManager = (steps: Option<CameraInfo>, movement: ReturnType<typeof movementCamera>) => {
-  let currentStep = 0
-  const data = steps
-
-  return {
-    animationState: 'start',
+const cameraManager = (steps: Option<CameraInfo>, movement: (step: number) => void) => {
+  const createManager = (currentStep: number, animationState: string) => ({
+    animationState,
+    currentStep,
     movement,
-    setCurrentStep: (step: number) => {
-      currentStep = step
-    },
-    getStep(){
-      return currentStep
-    },
-    getStepInfo() {
-      if(!isNone(data)) {
-        return data.value.getStep(currentStep)
-      }
-      return none
-    }
-  }
-}
+    getStep: () => currentStep,
+    getStepInfo: () => (!isNone(steps) ? steps.value.getStep(currentStep) : none),
+    setCurrentStep: (step: number) => createManager(step, 'update')
+  });
+
+  return createManager(0, 'start');
+};
 
 const initializeCamera = (
   scene: THREE.Scene, 
@@ -123,11 +115,10 @@ const initializeCamera = (
   const camera = createCameraPerspective()
 	const controls = new OrbitControls( camera, renderer.domElement );
   const cameraSteps = cameraInfo(CameraData)
-  const cameraFlow = movementCamera(camera, controls)
 
-  const manager = cameraManager(cameraSteps, cameraFlow)
-  const eventListener = keyboardListeners(manager)
-  
+  const cameraFlow = movementCamera(camera, controls, cameraSteps);
+  const manager = cameraManager(cameraSteps, cameraFlow);
+  keyboardListeners(manager);
 
   createGUI(camera, panelGUI)
 
@@ -151,41 +142,46 @@ const animateCamera = (
   renderer.render( scene, component.camera );
 }
 
-const movementCamera = (camera: THREE.PerspectiveCamera, controls: OrbitControls) => {
-  const targetPosition = { x: 10, y: 10, z: 10 };  // The target position
-  const targetLookAt = { x: 0, y: 0, z: 0 };       // The target lookAt
-
-  return () => {
-    gsap.to(camera.position, {
-      x: targetPosition.x,
-      y: targetPosition.y,
-      z: targetPosition.z,
-      duration: 2,  // Animation duration in seconds
-      ease: "power1.inOut",  // Easing function for smooth transition
-      onUpdate: () => {
-        // Update camera lookAt (this could also be animated separately)
-        controls.target.set(targetLookAt.x, targetLookAt.y, targetLookAt.z);
-        controls.update();
-      }
-    });
+type MovementCameraType = (camera: THREE.PerspectiveCamera, controls: OrbitControls, cameraSteps: ReturnType<typeof cameraInfo>) => (step: number) => void
+const movementCamera: MovementCameraType = (camera, controls, cameraSteps) => (step: number) => {
+  // Perform smooth camera animation based on step
+  if (isNone(cameraSteps)) {
+    return
   }
-}
+  const stepInfo = cameraSteps.value.getStep(step);
+  if (isNone(stepInfo)) { 
+    return
+  }
+  gsap.to(camera.position, {
+    x: stepInfo.value.position.x,
+    y: stepInfo.value.position.y,
+    z: stepInfo.value.position.z,
+    duration: 2,
+    onUpdate: () => {
+      controls.target.set(
+        stepInfo.value.lookAt.x,
+        stepInfo.value.lookAt.y,
+        stepInfo.value.lookAt.z
+      );
+      controls.update();
+    }
+  });
+};
 
 const keyboardListeners = (manager: ReturnType<typeof cameraManager>) => {
-  const stepKeys = [0,1,2,3,4,5].map(v => v.toString())
+  const stepKeys = [0, 1, 2, 3, 4, 5].map(v => v.toString());
+
   window.addEventListener('keypress', (e: KeyboardEvent) => {
-    const foundIndex = stepKeys.indexOf(e.key)
-    if (foundIndex === -1) {
-      return
+    const foundIndex = stepKeys.indexOf(e.key);
+    if (foundIndex === -1 || manager.getStep() === foundIndex) {
+      return;
     }
-    if (manager.getStep() === foundIndex) {
-      return
-    }
-    manager.setCurrentStep(foundIndex)
-    manager.animationState = 'update'
-    manager.movement()
-    console.log(manager.getStep())
-  })
-}
+
+    const updatedManager = manager.setCurrentStep(foundIndex);
+    updatedManager.movement(foundIndex);
+
+    // console.log(updatedManager.getStep());
+  });
+};
 
 export { initializeCamera, animateCamera }
