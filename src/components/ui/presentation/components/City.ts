@@ -12,13 +12,10 @@ const initializeCity = (scene: THREE.Scene) => {
     console.log(model)
   })
   .catch(error => console.error(error))
-
-
   return city
 } 
 
 const animateCity = (city, time: number, camera): void => {
-  let cam = camera
 } 
 
 export { initializeCity, animateCity }

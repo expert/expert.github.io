@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Button } from '@/components/ui/button'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -31,10 +30,6 @@ import { PresentationScene } from "@/components/ui/presentation"
   <main> 
     <RouterView />
   </main>
-  <div>
-    <Button>Click me</Button>
-  </div>
-  <button class="btn">Button</button>
 
 </template>
 

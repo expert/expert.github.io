@@ -1,14 +1,21 @@
 <template>
-  <div class="hero min-h-screen">
-  <div class="hero-content flex-col lg:flex-row-reverse">
+  <div class="hero min-h-screen items-start">
+  <div class="hero-content flex-col lg:flex-row-reverse justify-items-start items-start mt-32">
     <div>
-      <h1 class="text-5xl font-bold">JS Senior Front-End Developer</h1>
-      <h2>Cernobai Alexei</h2>
-      <p class="py-6">
-        Experienced Frontend and Full Stack JS developer specializing in creating extensible and reusable applications. Highly motivated, with expertise in developing user interfaces for modern Rich Internet Applications using the latest Front-End Technologies. Dedicated to continuous skill expansion and eager to explore new stacks.
+      <h2 class="text-white text-center">Cernobai Alexei Portfolio</h2>
+      <h1 class="text-white text-center text-5xl font-bold">I'm a Senior JavaScript Front-End Developer</h1>
+      <p class="text-white text-center py-6">
+        I specialize in Vue.js, Three.js, and Babylon.js to create dynamic user interfaces and immersive 3D web experiences. My focus is on delivering high-performance, visually stunning applications that drive user engagement and bring real value to clients.
       </p>
-      <button class="btn btn-primary">Get Started</button>
+      <button class="btn btn-primary" @click="startJourney">Explore My Journey</button>
     </div>
   </div>
 </div>
 </template>
+<script setup lang="ts">
+const emit = defineEmits(['startJourney'])
+
+const startJourney = () => {
+  emit('startJourney')
+}
+</script>

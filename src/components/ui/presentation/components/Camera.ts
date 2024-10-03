@@ -6,6 +6,9 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 import CameraData from '@/components/ui/presentation/data/camera.json'
 import { none } from '@/lib/functional/option';
+import { useJourneyStore } from '@/stores/journey';
+import { StoreGeneric, storeToRefs } from 'pinia';
+import { watch } from 'vue';
 
 type Point3D = {
   x: number,
@@ -81,11 +84,11 @@ const createGUI = function(camera: THREE.PerspectiveCamera, gui: GUI): void {
 }
 
 const createCameraPerspective = function(): THREE.PerspectiveCamera {
-  const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 0.1, 2000 );
+  const camera = new THREE.PerspectiveCamera( 2, window.innerWidth / window.innerHeight, 0.1, 2000 );
 
-  camera.position.z = 345;
-	camera.position.y = 100
-	camera.lookAt(new THREE.Vector3(0, 0, 0))
+  camera.position.z = 15;
+	camera.position.y = 210
+	// camera.lookAt(new THREE.Vector3(100, 210, 2000))
 
   return camera
 }
@@ -106,7 +109,8 @@ const cameraManager = (steps: Option<CameraInfo>, movement: (step: number) => vo
 const initializeCamera = (
   scene: THREE.Scene, 
   renderer: THREE.WebGLRenderer,
-  panelGUI: GUI
+  panelGUI: GUI | undefined,
+  store: StoreGeneric
 ): { 
   camera: THREE.PerspectiveCamera,
   manager: ReturnType<typeof cameraManager>
@@ -114,13 +118,23 @@ const initializeCamera = (
 	
   const camera = createCameraPerspective()
 	const controls = new OrbitControls( camera, renderer.domElement );
+  controls.target.set(0, 210, 0)
+  controls.update()
   const cameraSteps = cameraInfo(CameraData)
 
   const cameraFlow = movementCamera(camera, controls, cameraSteps);
   const manager = cameraManager(cameraSteps, cameraFlow);
-  keyboardListeners(manager);
+  const { step } = storeToRefs(store) 
 
-  createGUI(camera, panelGUI)
+  watch(step, () => {
+    console.log('watch step', step.value)
+    const updatedManager = manager.setCurrentStep(step.value);
+    updatedManager.movement(step.value);
+  })
+
+  keyboardListeners(manager, store);
+
+  // createGUI(camera, panelGUI)
 
   return { camera, manager }
 }
@@ -152,6 +166,8 @@ const movementCamera: MovementCameraType = (camera, controls, cameraSteps) => (s
   if (isNone(stepInfo)) { 
     return
   }
+  camera.fov = 50
+  camera.updateProjectionMatrix()
   gsap.to(camera.position, {
     x: stepInfo.value.position.x,
     y: stepInfo.value.position.y,
@@ -168,7 +184,10 @@ const movementCamera: MovementCameraType = (camera, controls, cameraSteps) => (s
   });
 };
 
-const keyboardListeners = (manager: ReturnType<typeof cameraManager>) => {
+const keyboardListeners = (
+  manager: ReturnType<typeof cameraManager>,
+  store: typeof useJourneyStore 
+) => {
   const stepKeys = [0, 1, 2, 3, 4, 5].map(v => v.toString());
 
   window.addEventListener('keypress', (e: KeyboardEvent) => {
@@ -179,6 +198,8 @@ const keyboardListeners = (manager: ReturnType<typeof cameraManager>) => {
 
     const updatedManager = manager.setCurrentStep(foundIndex);
     updatedManager.movement(foundIndex);
+    const { setStep } = store
+    setStep(foundIndex)
 
     // console.log(updatedManager.getStep());
   });

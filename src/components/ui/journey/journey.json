@@ -56,8 +56,8 @@
     "skills": ["Vue.JS", "Three.js"]
   },
   {
-    "title": "Start career",
-    "description": "About me",
+    "title": "Age",
+    "description": "",
     "stepper": {
       "title": "Step 2",
       "description": "This is the second step"
@@ -69,14 +69,13 @@
       },
       {
         "tag": "p",
-        "value": "As a CSS/HTML/JS developer, I specialized in creating dynamic websites tailored for Real Estate agencies. Proficiently translating PSD designs into HTML, I seamlessly integrate them into backend CMS and frameworks. My expertise extends to working with CMS platforms like MODX and WordPress, as well as frameworks including Kohana, Zend, and Symfony. I am also well-versed in template languages like Twig and Smarty."
+        "value": "Bord in 1990"
       }
-    ],
-    "skills": ["CSS3, ", "HTML5", "BEM", "Sass", "Smarty"]
+    ]
   },
   {
-    "title": "Step 3",
-    "description": "About me",
+    "title": "Home",
+    "description": "Home/Location",
     "stepper": {
       "title": "Step 3",
       "description": "This is the third step"
@@ -84,13 +83,206 @@
     "body": [
       {
         "tag": "h3",
-        "value": "Web Developer"
+        "value": "My home is Chisinau moldova"
+      },
+      {
+        "tag": "p",
+        "value": "timezone"
+      }
+    ],
+    "skills": ["Romanian", "Russian", "English"]
+  },
+  {
+    "title": "School",
+    "description": "Education/Study",
+    "stepper": {
+      "title": "Step 4",
+      "description": "This is the third step"
+    },
+    "body": [
+      {
+        "tag": "h3",
+        "value": "School"
+      },
+      {
+        "tag": "p",
+        "value": "s.Maximovca, r. Anenii Noi (MD), 1996 - 2007"
+      },
+      {
+        "tag": "h3",
+        "value": "University"
+      },
+      {
+        "tag": "p",
+        "value": "Inginer of Specialist of Economic Cybernetics, Statistics and Informatics: Academy of Economic Studies of Moldova (Chisinau, MD), 2007 – 2011"
+      }
+    ],
+    "skills": ["Math", "IT", "Developer"]
+  },
+  {
+    "title": "EXPERIENCE",
+    "description": "Web Developer: Hugsandi Menn (Departament from Moldova), 2010 – 2015",
+    "stepper": {
+      "title": "Step 5",
+      "description": "This is the third step"
+    },
+    "body": [
+      {
+        "tag": "h3",
+        "value": "Overview"
       },
       {
         "tag": "p",
         "value": "As a CSS/HTML/JS developer, I specialized in creating dynamic websites tailored for Real Estate agencies. Proficiently translating PSD designs into HTML, I seamlessly integrate them into backend CMS and frameworks. My expertise extends to working with CMS platforms like MODX and WordPress, as well as frameworks including Kohana, Zend, and Symfony. I am also well-versed in template languages like Twig and Smarty."
+      },
+      {
+        "tag": "h3",
+        "value": "Project"
+      },
+      {
+        "tag": "p",
+        "value": "http://fasteignir.visir.is/ Real Estate Marketplace in Iceland."
       }
     ],
-    "skills": ["CSS3, ", "HTML5", "BEM", "Sass", "Smarty"]
+    "skills": ["CSS3", "HTML5", "Bem", "Sass", "Smarty"]
+  },
+  {
+    "title": "EXPERIENCE",
+    "description": "FrontEnd Developer: Est Computers (Chisinau. MD), 2015",
+    "stepper": {
+      "title": "Step 6",
+      "description": "This is the third step"
+    },
+    "body": [
+      {
+        "tag": "h3",
+        "value": "Overview"
+      },
+      {
+        "tag": "p",
+        "value": "Developed UI components for a substantial application utilizing Ext.js, tailored for a Medical Health service. Collaborated with teams spanning the globe."
+      }
+    ],
+    "skills": ["Ext.js", "Java", "Spring Framework"]
+  },
+  {
+    "title": "EXPERIENCE",
+    "description": "Author Themeforest: Codefactory47 (Chisinau. MD), 2015 - 2020",
+    "stepper": {
+      "title": "Step 6",
+      "description": "This is the third step"
+    },
+    "body": [
+      {
+        "tag": "h3",
+        "value": "Overview"
+      },
+      {
+        "tag": "p",
+        "value": "As a co-founder and author on the Themeforest Marketplace, I held the position of creating highly customizable, flexible, and contemporary templates and themes for a global user base. My primary focus encompassed the design, development, and meticulous testing of UX/UI components."
+      },
+      {
+        "tag": "h3",
+        "value": "Projects"
+      },
+      {
+        "tag": "p",
+        "value": "Realtyspace - Real estate WordPress Theme \n Contributed to the creation of a top-rated and best-selling Real Estate WordPress theme, earning accolades within its category. My role encompassed crafting all frontend interfaces with an emphasis on extensive customization options and diverse variations. I undertook CSS/HTML/JS coding and seamless integration within the WordPress environment."
+      },
+      {
+        "tag": "p",
+        "value": "Ferienchecker.at - Events Portal Engaged in full stack development of an application utilizing NUXT.js and Node.js, with the Koa framework as the backbone. Encompassing a comprehensive suite of features, the application included membership user capabilities for listing publication, seamless integration of PayPal and SMS payments, email notifications, and the generation of PDF invoices."
+      }
+    ],
+    "skills": [" BEM, Sass, Gulp, Twitter Bootstrap, full responsive, PixelPerfect, Google API’s, Smarty, Trellis, Ansible, VagrantUp"]
+  },
+  {
+    "title": "EXPERIENCE",
+    "description": "Frontend Developer: Bullyentertainment (Chisinau. MD), 2020 - 2022",
+    "stepper": {
+      "title": "Step 7",
+      "description": "This is the third step"
+    },
+    "body": [
+      {
+        "tag": "h3",
+        "value": "Overview"
+      },
+      {
+        "tag": "p",
+        "value": "Specialized as a Frontend Developer focused on creating applications using THREE.js and WebXR technologies."
+      },
+      {
+        "tag": "h3",
+        "value": "Projects"
+      },
+      {
+        "tag": "p",
+        "value": "Creative Factory Crafted a WebXR application featuring immersive 3D world experiences."
+      },
+      {
+        "tag": "p",
+        "value": "Emerging Markets Developed an application that showcases interactive web content on iOS."
+      }
+    ],
+    "skills": ["THREE.js, Aframe.io, WebXR, Blender"]
+  },
+  {
+    "title": "EXPERIENCE",
+    "description": "Frontend Developer: TravelBusinessClass (Chisinau. Md), 2022 - 2023",
+    "stepper": {
+      "title": "Step 8",
+      "description": "This is the third step"
+    },
+    "body": [
+      {
+        "tag": "h3",
+        "value": "Overview"
+      },
+      {
+        "tag": "p",
+        "value": "Engineered a CRM system tailored to facilitate the management of leads and agents."
+      },
+      {
+        "tag": "h3",
+        "value": "Projects"
+      },
+      {
+        "tag": "p",
+        "value": "https://travelbusinessclass.com/"
+      }
+    ],
+    "skills": ["Vue3, Nuxt3, Websocket, Typescript"]
+  },
+  {
+    "title": "EXPERIENCE",
+    "description": "GameDev",
+    "stepper": {
+      "title": "Step 9",
+      "description": "This is the third step"
+    },
+    "body": [
+      {
+        "tag": "h3",
+        "value": "Overview"
+      },
+      {
+        "tag": "p",
+        "value": "Dev as game"
+      },
+      {
+        "tag": "h3",
+        "value": "Projects"
+      },
+      {
+        "tag": "p",
+        "value": "Game https://papaya-daffodil-3351d0.netlify.app/"
+      },
+      {
+        "tag": "p",
+        "value": "Personal Portfolio https://expert.github.io/"
+      }
+    ],
+    "skills": ["Vue3, Nuxt3, Websocket, Typescript"]
   }
 ]

@@ -38,10 +38,14 @@ const initializeTube = (scene: THREE.Scene, curves: CatmullRomCurve3[]) => {
 			(tube.material as THREE.ShaderMaterial).uniforms.time = { value: 0 };
 	});
 	tubes.forEach((tube: THREE.Mesh) => scene.add(tube))
-	return tubes;
+	tubes.forEach((tube: THREE.Mesh) => {
+		tube.position.add(new THREE.Vector3(0, 210, 0))
+		// tube.scale.set(20, 20, 20)
+	})
+	return { tubes } ;
 };
 
-const animateTube = (tubes: THREE.Mesh[], time: number, mouse: THREE.Vector3) => {
+const animateTube = ({tubes} : {tubes: THREE.Mesh[]}, time: number, mouse: THREE.Vector3) => {
 	tubes.forEach((tube) => {
 			(tube.material as THREE.ShaderMaterial).uniforms.time.value = time;
 			(tube.material as THREE.ShaderMaterial).uniforms.mouse.value = mouse;

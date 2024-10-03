@@ -1,4 +1,6 @@
+import { AnimationClip, Camera, Group, Object3DEventMap } from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import * as THREE from 'three'
 
 // Instantiate a loader
 const loader = new GLTFLoader();
@@ -7,6 +9,12 @@ const loader = new GLTFLoader();
 // const dracoLoader = new DRACOLoader();
 // dracoLoader.setDecoderPath( '/examples/jsm/libs/draco/' );
 // loader.setDRACOLoader( dracoLoader );
+export type SceneModel = {
+  scene: Group<Object3DEventMap> | THREE.Mesh,
+  animations: AnimationClip[],
+  cameras: Camera[],
+  assets: unknown
+}
 
 // Load a glTF resource
 const loadModel = (url: string) => {

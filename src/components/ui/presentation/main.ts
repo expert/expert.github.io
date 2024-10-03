@@ -9,7 +9,8 @@ import { initializeTube, animateTube } from './components/BrainTube';
 import { initializeParticle, animateParticle } from './components/BrainParticles';
 import { initializeCity, animateCity } from './components/City';
 import { initializeCamera, animateCamera } from './components/Camera';
-
+import { animateNotebook, initializeNotebook } from './components/Notebook';
+import { useJourneyStore  } from '@/stores/journey';
 
 const registerComponent = <T>(init: () => T, animate: (component: T, time: number) => void) => {
 	const component = init();
@@ -18,8 +19,9 @@ const registerComponent = <T>(init: () => T, animate: (component: T, time: numbe
 	};
 };
 
-export const initialize = (elRef: Ref) => {
+export const initialize = (elRef: Ref, store: typeof useJourneyStore) => {
 	const scene = new THREE.Scene();
+	const journeyStore = store()
 
 	const renderer = new THREE.WebGLRenderer({ antialias: true });
 	renderer.setSize( window.innerWidth, window.innerHeight );
@@ -28,15 +30,21 @@ export const initialize = (elRef: Ref) => {
 	elRef.value.appendChild( renderer.domElement );
 
 
-	const panelGUI = new GUI( { width: 310 } );
+	// const panelGUI = new GUI( { width: 310 } );
+	const panelGUI = undefined;
 
 	const light = new THREE.AmbientLight(0x404040)
 	light.intensity = 100
 	scene.add(light)
 
-
+	let camera: THREE.PerspectiveCamera;
 	const cameraComponent = registerComponent(
-		() => initializeCamera(scene, renderer, panelGUI),
+		() => {
+			const initialized = initializeCamera(scene, renderer, panelGUI, journeyStore)
+			console.log(initialized)
+			camera = initialized.camera
+			return initialized
+		},
 		(component, time) => {
 			animateCamera({ component, renderer, scene} , time)
 		}
@@ -72,11 +80,18 @@ export const initialize = (elRef: Ref) => {
 		}
 	)
 
+	const componentNotebook = registerComponent(
+		() => initializeNotebook(scene),
+		(notebook, time) => {
+			animateNotebook(notebook, time, camera)
+		}
+	)
+
 	function animate(time: number) {
 		cameraComponent(time)
 		componentTubes(time)
 		componentParticles(time)
-		componentCity(time)
+		// componentCity(time)
 
 	}
 	renderer.setAnimationLoop( animate );

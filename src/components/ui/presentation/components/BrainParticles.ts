@@ -24,7 +24,7 @@ const generateRandomVertices = (len: number = 0) => {
   return positionsArray
 }
 
-const generatePoints = (curves: THREE.CatmullRomCurve3[], density = 10) => {
+const generatePoints = (curves: THREE.CatmullRomCurve3[], density = 5) => {
   const myPoints: Point[] = []
   for (let i = 0; i < curves.length; i++) {
     for (let j = 0; j < density; j++) {
@@ -70,7 +70,9 @@ const initializeParticle = (scene: THREE.Scene, curves: THREE.CatmullRomCurve3[]
   const points = generatePoints(curves)
 	const particles = BrainParticles(randomVertices)
 	scene.add(particles)
-  return { particles, points}
+  particles.position.add(new THREE.Vector3(0, 210, 0))
+  // particles.scale.set(20, 20, 20)
+  return { particles, points }
 }
 
 const animateParticle = (
