@@ -13,17 +13,13 @@ import { PresentationScene } from "@/components/ui/presentation"
 
 <template>
   <PresentationScene></PresentationScene>
-  <NavigationMenu>
+  <NavigationMenu class="menu p-4 bg-black">
     <NavigationMenuList>
       <NavigationMenuItem>
-        <NavigationMenuTrigger><RouterLink to="/">Presentation</RouterLink></NavigationMenuTrigger>
+        <RouterLink class="text-white text-lg" to="/">Presentation</RouterLink>
       </NavigationMenuItem>
       <NavigationMenuItem>
-        <RouterLink to="/resume">Resume</RouterLink>
-      </NavigationMenuItem>
-
-      <NavigationMenuItem>
-        <NavigationMenuTrigger>Contact</NavigationMenuTrigger>
+        <RouterLink class="text-white text-lg" to="/resume">Resume</RouterLink>
       </NavigationMenuItem>
     </NavigationMenuList>
   </NavigationMenu>
@@ -45,5 +41,11 @@ import { PresentationScene } from "@/components/ui/presentation"
 }
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
+}
+@media print {
+  .menu {
+    display: none;
+  }
+  
 }
 </style>

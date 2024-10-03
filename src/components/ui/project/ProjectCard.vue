@@ -50,17 +50,17 @@
     <CardFooter class="px-2 pb-2">
       <template v-if="links && links.length > 0">
         <div class="flex flex-row flex-wrap items-start gap-1">
-          <RouterLink
+          <a
             v-for="(link, idx) in links"
             :key="idx"
-            :to="link.href"
+            :href="link.href"
             target="_blank"
           >
             <Badge class="flex gap-2 px-2 py-1 text-[10px]">
               {{ link.icon }}
               {{ link.type }}
             </Badge>
-          </RouterLink>
+          </a>
         </div>
       </template>
     </CardFooter>

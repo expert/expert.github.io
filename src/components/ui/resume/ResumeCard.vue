@@ -1,5 +1,5 @@
 <template>
-<RouterLink :to="href || '#'" class="block cursor-pointer" @click="handleClick">
+<a :href="href || '#'" target="_blank" class="block cursor-pointer">
     <Card class="flex pb-6">
       <div class="flex-none pt-6 pl-6">
         <Avatar class="border size-12 m-auto bg-muted-background dark:bg-foreground">
@@ -44,12 +44,12 @@
         </div>
       </div>
     </Card>
-  </RouterLink>
+  </a>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { RouterLink } from 'vue-router';
+// import { RouterLink } from 'vue-router';
 // import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardHeader } from '@/components/ui/card';
@@ -73,10 +73,10 @@ const props = defineProps<ResumeCardProps>();
 
 const isExpanded = ref(false);
 
-const handleClick = (e: MouseEvent) => {
-  if (props.description) {
-    e.preventDefault();
-    isExpanded.value = !isExpanded.value;
-  }
-};
+// const handleClick = (e: MouseEvent) => {
+//   if (props.description) {
+//     e.preventDefault();
+//     isExpanded.value = !isExpanded.value;
+//   }
+// };
 </script>

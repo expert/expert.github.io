@@ -138,7 +138,8 @@ watch(currentStep, () => {
       </Card>
     </div>
 
-    <Stepper v-model="currentStep">
+    <Stepper v-model="currentStep" class="bg-white p-2 rounded-md mt-2">
+      <div class="mt-4">Click on the steps: </div>
       <StepperItem v-for="(title, index) of stepper" :step="index">
         <StepperTrigger>
           <StepperIndicator>{{ index + 1 }}</StepperIndicator>

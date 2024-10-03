@@ -5,23 +5,27 @@
           <div class="gap-2 flex justify-between">
             <div class="flex-col flex flex-1 space-y-1.5">
               <div 
-                class="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
+                class="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none mt-4"
               >
-                Hi, I'm Alexei
+                Hi, I'm Cernobai Alexei
               </div>
-              <div 
-                class="max-w-[600px] md:text-xl" 
-                />
-               {{  DATA.description }}
+              <div class="flex mt-4">
+                <div 
+                  class="max-w-[600px] md:text-xl" 
+                >
+                  {{  DATA.description }}
+                </div>
+                <Avatar>
+                  <AvatarImage :src="DATA.avatarUrl" :alt="DATA.name" />
+                  <AvatarFallback>{{ DATA.initials }}</AvatarFallback>
+                </Avatar>
               </div>
             </div>
-            <Avatar>
-              <AvatarImage :src="DATA.avatarUrl" :alt="DATA.name" />
-              <AvatarFallback>{{ DATA.initials }}</AvatarFallback>
-            </Avatar>
+            </div>
+            
           </div>
       </section>
-      <section id="about">
+      <!-- <section id="about">
         <div class="mx-auto w-full max-w-2xl space-y-2">
           <div>
             <h2 class="text-xl font-bold">About</h2>
@@ -32,7 +36,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
       <section id="work">
         <div class="mx-auto w-full max-w-2xl space-y-2">
           <div class="flex min-h-0 flex-col gap-y-3">
@@ -129,6 +133,7 @@
                   :image="project.image"
                   :video="project.video"
                   :links="project.links"
+                  hide-preview
                 />
               </div>
           </div>
@@ -145,15 +150,11 @@
                 Get in Touch
               </h2>
               <p class="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Want to chat? Just shoot me a dm{" "}
-                <Link
-                  href={DATA.contact.social.X.url}
-                  class="text-blue-500 hover:underline"
-                >
-                  with a direct question on twitter
-                </Link>{" "}
-                and I&apos;ll respond whenever I can. I will ignore all
-                soliciting.
+                Here are my contacts: 
+                <div v-for="contact of DATA.contact.social">
+                  {{ contact.name }}: <br> <a :href="contact.url" class="underline text-primary"  target="_blank">{{ contact.url }}</a> 
+                </div>
+                
               </p>
             </div>
           </div>

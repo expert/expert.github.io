@@ -7,25 +7,30 @@ export const DATA = {
   description:
     "I'm a Senior Front-End Developer specializing in building interactive and immersive web applications. My main focus is on Vue.js for front-end development, as well as Three.js and Babylon.js for creating 3D experiences and advanced visualizations on the web. I’m passionate about combining cutting-edge technologies to bring dynamic user interfaces and rich graphics to life.",
   summary:
-    "At the end of 2022, I quit my job as a software engineer to go fulltime into building and scaling my own SaaS businesses. In the past, [I pursued a double degree in computer science and business](/#education), [interned at big tech companies in Silicon Valley](https://www.youtube.com/watch?v=d-LJ2e5qKdE), and [competed in over 21 hackathons for fun](/#hackathons). I also had the pleasure of being a part of the first ever in-person cohort of buildspace called [buildspace sf1](https://buildspace.so/sf1).",
+    "I specialize in Vue.js, Three.js, and Babylon.js to create dynamic user interfaces and immersive 3D web experiences. My focus is on delivering high-performance, visually stunning applications that drive user engagement and bring real value to clients.",
   avatarUrl: "/assets/images/photo.jpg",
   skills: [
-    "Vue",
+    "Vue.js",
     "Nuxt.js",
+    "WebGL",
+    "Three.js",
+    "Babylon.js",
     "Typescript",
+    "TailwindCSS",
     "Node.js",
     "Postgres",
     "Docker",
+    "Mysql",
+    "WordPress"
   ],
   contact: {
     email: "alexei.cernobai@gmail.com",
-    tel: "+123456789",
+    tel: "+(373) 79226130",
     social: {
       GitHub: {
         name: "GitHub",
         url: "https://github.com/expert/",
         // icon: Icons.github,
-
         navbar: true,
       },
       LinkedIn: {
@@ -42,6 +47,10 @@ export const DATA = {
 
         navbar: false,
       },
+      upwork: {
+        name: "Upwork",
+        url: "https://www.upwork.com/freelancers/~01e0744dacdd205429",
+      }
     },
   },
 
@@ -51,12 +60,12 @@ export const DATA = {
       badges: [],
       href: "https://papaya-daffodil-3351d0.netlify.app/",
       location: "Remote",
-      title: "Babylon.js/Three.js/WebGL Engineer",
+      title: "Babylon.js | Three.js | WebGL Developer",
       logoUrl: "",
       start: "2024",
       end: "2023",
       description:
-        "Implemented a game",
+        "",
     },
     {
       company: "TravelBusinessClass",
@@ -122,7 +131,7 @@ export const DATA = {
   education: [
     {
       school: "Academy of Economic Studies of Moldova",
-      href: "https://buildspace.so",
+      href: "https://ase.md/",
       degree: "IT Inginer and Specialist of Economic Cybernetics, Statistics and Informatics",
       logoUrl: "/assets/images/logo-asem.png",
       start: "2007",
@@ -137,19 +146,19 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "Tank Arena",
+      title: "Tank Firefight",
       href: "https://papaya-daffodil-3351d0.netlify.app/",
       dates: "2023 - 2024",
       active: true,
       description:
-        "With the release of the [OpenAI GPT Store](https://openai.com/blog/introducing-the-gpt-store), I decided to build a SaaS which allows users to collect email addresses from their GPT users. This is a great way to build an audience and monetize your GPT API usage.",
+        "I created a game using Babylon.js and built a custom OOP framework to manage its structure. I also integrated the Havok physics engine to handle realistic physics simulations.",
       technologies: [
-        "Three.js",
-        "Vite.js",
+        "Babylon.js",
+        "Havok",
       ],
       links: [
         {
-          type: "Website",
+          type: "Play Game",
           href: "https://papaya-daffodil-3351d0.netlify.app/",
           // icon: <Icons.globe className="size-3" />,
         },
@@ -161,7 +170,7 @@ export const DATA = {
       ],
       image: "",
       video:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/chat-collect.mp4",
+        "",
     },
     {
       title: "Personal Portfolio",
@@ -169,7 +178,7 @@ export const DATA = {
       dates: "September 2024",
       active: true,
       description:
-        "Designed, developed and sold animated UI components for developers.",
+        "Designed, developed personal portfolio.",
       technologies: [
         "Three.js",
         "WebGL",
@@ -213,14 +222,9 @@ export const DATA = {
           href: "https://bullyentertainment.8thwall.app/creativefactory/",
           // icon: <Icons.globe className="size-3" />,
         },
-        {
-          type: "Source",
-          href: "https://github.com/dillionverma/llm.report",
-          // icon: <Icons.github className="size-3" />,
-        },
       ],
       image: "",
-      video: "https://cdn.llm.report/openai-demo.mp4",
+      video: "",
     },
     {
       title: "Emerging Markets",
@@ -244,7 +248,7 @@ export const DATA = {
       ],
       image: "",
       video:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/automatic-chat.mp4",
+        "",
     },
     {
       title: "Travellbusinessclass.com",
@@ -256,7 +260,6 @@ export const DATA = {
       technologies: [
         "Vue3",
         "Nuxt3",
-        "Tests",
         "Websocket",
         "Typescript",
         "TailwindCSS"
@@ -264,17 +267,12 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://wealty.co/",
-          // icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
           href: "https://travelbusinessclass.com/",
-          // icon: <Icons.github className="size-3" />,
+          // icon: <Icons.globe className="size-3" />,
         },
       ],
       image: "",
-      video: "https://cdn.magicui.design/bento-grid.mp4",
+      video: "",
     },
     {
       title: "Wealty.co",
@@ -296,14 +294,9 @@ export const DATA = {
           href: "https://wealty.co/",
           // icon: <Icons.globe className="size-3" />,
         },
-        {
-          type: "Source",
-          href: "https://github.com/expert/expert.github.io",
-          // icon: <Icons.github className="size-3" />,
-        },
       ],
       image: "",
-      video: "https://cdn.magicui.design/bento-grid.mp4",
+      video: "",
     },
     {
       title: "Ferienchecker.at - Events Portal",
@@ -321,14 +314,9 @@ export const DATA = {
           href: "https://bullyentertainment.8thwall.app/creativefactory/",
           // icon: <Icons.globe className="size-3" />,
         },
-        {
-          type: "Source",
-          href: "https://github.com/dillionverma/llm.report",
-          // icon: <Icons.github className="size-3" />,
-        },
       ],
       image: "",
-      video: "https://cdn.llm.report/openai-demo.mp4",
+      video: "",
     },
     {
       title: "Realtyspace - Real estate WordPress Theme",
@@ -349,7 +337,7 @@ export const DATA = {
       ],
       image: "",
       video:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/automatic-chat.mp4",
+        "",
     },
   ]
 } as const;
