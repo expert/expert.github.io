@@ -140,8 +140,10 @@ export const DATA = {
     {
       school: "School s.Maximovca, r. Anenii Noi (MD),",
       degree: "Grades 1 - 11",
+      logoUrl: "",
       start: "1996",
       end: "2007",
+      href: ""
     }
   ],
   projects: [

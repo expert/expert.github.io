@@ -8,6 +8,8 @@ const initializeCity = (scene: THREE.Scene) => {
   const city = City()
 
   const cityModel = loadModel('/assets/gltf/city.glb').then(model => {
+
+    // @ts-expect-error
     scene.add(model.scene)
     console.log(model)
   })
@@ -15,7 +17,7 @@ const initializeCity = (scene: THREE.Scene) => {
   return city
 } 
 
-const animateCity = (city, time: number, camera): void => {
+const animateCity = (time: number): void => {
 } 
 
 export { initializeCity, animateCity }

@@ -78,14 +78,14 @@ function onWindowResize() {
 	const componentParticles = registerComponent(
 		() => initializeParticle(scene, brainCurves),
 		(particles, time) => {
-			animateParticle(particles, time)
+			animateParticle(particles)
 		}
 	)
 
 	const componentCity = registerComponent(
 		() => initializeCity(scene),
 		(city, time) => {
-			animateCity(city, time)
+			animateCity(time)
 		}
 	)
 

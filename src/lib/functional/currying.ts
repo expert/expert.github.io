@@ -1,7 +1,7 @@
 // Function Currying
 // https://www.youtube.com/watch?v=mrskE3X0hXE&list=PLuPevXgCPUIMbCxBEnc1dNwboH6e2ImQo&index=6
 
-function normal_sum(x, y) { 
+function normal_sum(x: number, y: number) { 
   return x + y
 }
 

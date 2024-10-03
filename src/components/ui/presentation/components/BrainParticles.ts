@@ -76,8 +76,7 @@ const initializeParticle = (scene: THREE.Scene, curves: THREE.CatmullRomCurve3[]
 }
 
 const animateParticle = (
-    { particles, points } : { particles: THREE.Points, points: Point[] },
-    time: number
+    { particles, points } : { particles: THREE.Points, points: Point[] }
   ) => {
 
 	let currentPositions = particles.geometry.attributes.position.array

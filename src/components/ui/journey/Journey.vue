@@ -11,7 +11,6 @@ import {
 
 import {
   Stepper,
-  StepperDescription,
   StepperIndicator,
   StepperItem,
   StepperSeparator,
@@ -25,11 +24,11 @@ import ResumeCard from "@/components/ui/resume/ResumeCard.vue";
 import ProjectCard from "@/components/ui/project/ProjectCard.vue";
 import { useJourneyStore } from "@/stores/journey"
 
-type Content = {
-  tag: string;
-  css?: string;
-  value: string;
-};
+// type Content = {
+//   tag: string;
+//   css?: string;
+//   value: string;
+// };
 
 const currentStep = ref(0)
 const stepper = ["About", "Education", "Experience", "Projects"]
@@ -88,7 +87,7 @@ watch(currentStep, () => {
         <CardContent class="overflow-y-auto max-h-72">
           <div class="grid grid-cols-1 gap-4">
           <div
-            v-for="(work, id) in DATA.work"
+            v-for="work in DATA.work"
             :key="work.company"
           >
             <ResumeCard

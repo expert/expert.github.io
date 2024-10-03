@@ -1,5 +1,4 @@
-import { type Some, isNone, Option, some } from '@/lib/functional/option';
-import { type Either, left, right } from '@/lib/functional/either';
+import {  isNone, Option, some } from '@/lib/functional/option';
 import * as THREE from 'three'
 import gsap from 'gsap';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -7,7 +6,7 @@ import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 import CameraData from '@/components/ui/presentation/data/camera.json'
 import { none } from '@/lib/functional/option';
 import { useJourneyStore } from '@/stores/journey';
-import { StoreGeneric, storeToRefs } from 'pinia';
+import { type StoreGeneric, storeToRefs } from 'pinia';
 import { watch } from 'vue';
 
 type Point3D = {
@@ -34,54 +33,54 @@ const cameraInfo = (data: CameraStep[]): Option<CameraInfo> => {
   })
 }
 
-const createGUI = function(camera: THREE.PerspectiveCamera, gui: GUI): void {
-  const cameraParams = {
-    positionX: camera.position.x,
-    positionY: camera.position.y,
-    positionZ: camera.position.z,
-    lookAtX: 0,
-    lookAtY: 0,
-    lookAtZ: 0,
-    fov: camera.fov, // Field of view
-    aspect: camera.aspect, // Aspect ratio
-    near: camera.near, // Near plane
-    far: camera.far,   // Far plane
-  };
-  // Update camera parameters
-  const updateCamera = () => {
-    camera.position.set(cameraParams.positionX, cameraParams.positionY, cameraParams.positionZ);
+// const createGUI = function(camera: THREE.PerspectiveCamera, gui: GUI): void {
+//   const cameraParams = {
+//     positionX: camera.position.x,
+//     positionY: camera.position.y,
+//     positionZ: camera.position.z,
+//     lookAtX: 0,
+//     lookAtY: 0,
+//     lookAtZ: 0,
+//     fov: camera.fov, // Field of view
+//     aspect: camera.aspect, // Aspect ratio
+//     near: camera.near, // Near plane
+//     far: camera.far,   // Far plane
+//   };
+//   // Update camera parameters
+//   const updateCamera = () => {
+//     camera.position.set(cameraParams.positionX, cameraParams.positionY, cameraParams.positionZ);
 
-    // Update the camera frustum parameters
-    camera.fov = cameraParams.fov;
-    camera.aspect = cameraParams.aspect;
-    camera.near = cameraParams.near;
-    camera.far = cameraParams.far;
+//     // Update the camera frustum parameters
+//     camera.fov = cameraParams.fov;
+//     camera.aspect = cameraParams.aspect;
+//     camera.near = cameraParams.near;
+//     camera.far = cameraParams.far;
 
-    // Update camera projection matrix after changing FOV, aspect, near, or far
-    camera.updateProjectionMatrix();
+//     // Update camera projection matrix after changing FOV, aspect, near, or far
+//     camera.updateProjectionMatrix();
 
-    // Update where the camera is looking
-    const lookAtTarget = new THREE.Vector3(cameraParams.lookAtX, cameraParams.lookAtY, cameraParams.lookAtZ);
-    camera.lookAt(lookAtTarget);
-  };
+//     // Update where the camera is looking
+//     const lookAtTarget = new THREE.Vector3(cameraParams.lookAtX, cameraParams.lookAtY, cameraParams.lookAtZ);
+//     camera.lookAt(lookAtTarget);
+//   };
 
-  // GUI controls for camera position
-  gui.add(cameraParams, 'positionX', -100, 100).onChange(updateCamera).name('Position X');
-  gui.add(cameraParams, 'positionY', -100, 100).onChange(updateCamera).name('Position Y');
-  gui.add(cameraParams, 'positionZ', -100, 100).onChange(updateCamera).name('Position Z');
+//   // GUI controls for camera position
+//   gui.add(cameraParams, 'positionX', -100, 100).onChange(updateCamera).name('Position X');
+//   gui.add(cameraParams, 'positionY', -100, 100).onChange(updateCamera).name('Position Y');
+//   gui.add(cameraParams, 'positionZ', -100, 100).onChange(updateCamera).name('Position Z');
 
-  // GUI controls for camera lookAt target
-  gui.add(cameraParams, 'lookAtX', -100, 100).onChange(updateCamera).name('LookAt X');
-  gui.add(cameraParams, 'lookAtY', -100, 100).onChange(updateCamera).name('LookAt Y');
-  gui.add(cameraParams, 'lookAtZ', -100, 100).onChange(updateCamera).name('LookAt Z');
+//   // GUI controls for camera lookAt target
+//   gui.add(cameraParams, 'lookAtX', -100, 100).onChange(updateCamera).name('LookAt X');
+//   gui.add(cameraParams, 'lookAtY', -100, 100).onChange(updateCamera).name('LookAt Y');
+//   gui.add(cameraParams, 'lookAtZ', -100, 100).onChange(updateCamera).name('LookAt Z');
 
-  // GUI controls for camera frustum (FOV, aspect ratio, near and far clipping planes)
-  gui.add(cameraParams, 'fov', 1, 180).onChange(updateCamera).name('Field of View');
-  gui.add(cameraParams, 'aspect', 0.1, 4).onChange(updateCamera).name('Aspect Ratio');
-  gui.add(cameraParams, 'near', 0.1, 50).onChange(updateCamera).name('Near Plane');
-  gui.add(cameraParams, 'far', 50, 2000).onChange(updateCamera).name('Far Plane');
+//   // GUI controls for camera frustum (FOV, aspect ratio, near and far clipping planes)
+//   gui.add(cameraParams, 'fov', 1, 180).onChange(updateCamera).name('Field of View');
+//   gui.add(cameraParams, 'aspect', 0.1, 4).onChange(updateCamera).name('Aspect Ratio');
+//   gui.add(cameraParams, 'near', 0.1, 50).onChange(updateCamera).name('Near Plane');
+//   gui.add(cameraParams, 'far', 50, 2000).onChange(updateCamera).name('Far Plane');
   
-}
+// }
 
 const createCameraPerspective = function(): THREE.PerspectiveCamera {
   const camera = new THREE.PerspectiveCamera( 2, window.innerWidth / window.innerHeight, 0.1, 2000 );
@@ -132,6 +131,7 @@ const initializeCamera = (
     updatedManager.movement(step.value);
   })
 
+  // @ts-expect-error
   keyboardListeners(manager, store);
 
   // createGUI(camera, panelGUI)
@@ -198,6 +198,8 @@ const keyboardListeners = (
 
     const updatedManager = manager.setCurrentStep(foundIndex);
     updatedManager.movement(foundIndex);
+
+    // @ts-expect-error
     const { setStep } = store
     setStep(foundIndex)
 

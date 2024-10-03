@@ -76,7 +76,7 @@ import { RouterLink } from 'vue-router';
 // import MarkdownContent from '@/components/MarkdownContent.vue'; // assuming you have a markdown component
 
 interface ProjectLink {
-  icon: string;
+  icon?: string;
   type: string;
   href: string;
 }
