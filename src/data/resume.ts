@@ -172,7 +172,7 @@ export const DATA = {
       ],
       image: "",
       video:
-        "",
+        "/assets/video/Tank Firefight 3D Online Game.mp4",
     },
     {
       title: "Personal Portfolio",
@@ -203,7 +203,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "https://cdn.magicui.design/bento-grid.mp4",
+      video: "/public/assets/video/portfolio.mp4",
     },
     {
       title: "Creative Factory",
@@ -226,7 +226,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "",
+      video: "/public/assets/video/creative.mp4",
     },
     {
       title: "Emerging Markets",
@@ -250,7 +250,7 @@ export const DATA = {
       ],
       image: "",
       video:
-        "",
+        "/public/assets/video/EMarkets video.mp4",
     },
     {
       title: "Travellbusinessclass.com",
@@ -274,7 +274,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "",
+      video: "/public/assets/video/Travelbusinessclass.mp4",
     },
     {
       title: "Wealty.co",
@@ -298,7 +298,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "",
+      video: "/public/assets/video/wealty.mp4",
     },
     {
       title: "Ferienchecker.at - Events Portal",
@@ -318,7 +318,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "",
+      video: "/public/assets/video/ferienchecker.mp4",
     },
     {
       title: "Realtyspace - Real estate WordPress Theme",
@@ -339,7 +339,7 @@ export const DATA = {
       ],
       image: "",
       video:
-        "",
+        "/public/assets/video/realtyspace.mp4",
     },
   ]
 } as const;

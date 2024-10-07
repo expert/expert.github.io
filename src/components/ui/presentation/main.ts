@@ -42,7 +42,7 @@ export const initialize = (elRef: Ref, store: typeof useJourneyStore) => {
 	const panelGUI = undefined;
 
 	const light = new THREE.AmbientLight(0x404040)
-	light.intensity = 100
+	light.intensity = 50
 	scene.add(light)
 
 	let camera: THREE.PerspectiveCamera;

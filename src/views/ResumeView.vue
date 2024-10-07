@@ -133,7 +133,6 @@
                   :image="project.image"
                   :video="project.video"
                   :links="project.links"
-                  hide-preview
                 />
               </div>
           </div>
