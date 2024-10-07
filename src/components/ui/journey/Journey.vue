@@ -42,7 +42,7 @@ watch(currentStep, () => {
 <template>
   <div class="journey pr-4">
     <div>
-      <Card v-if="currentStep == 0" class="h-auto" v-motion-fade>
+      <Card v-if="currentStep == 0"  class="h-auto animate-border bg-black">
         <CardHeader>
           <CardTitle>About</CardTitle>
           <CardDescription class="card-title">Hi, I'm Alexei</CardDescription>
@@ -56,7 +56,7 @@ watch(currentStep, () => {
           <Badge v-for="skill of DATA.skills">{{ skill }}</Badge>
         </CardFooter>
       </Card>
-      <Card v-if="currentStep == 1" class="h-auto" v-motion-fade>
+      <Card v-if="currentStep == 1" class="h-auto animate-border bg-black">
         <CardHeader>
           <CardTitle>Education</CardTitle>
           <CardDescription class="card-title">Hi, I'm Alexei</CardDescription>
@@ -79,7 +79,7 @@ watch(currentStep, () => {
         </CardContent>
       
       </Card>
-      <Card v-if="currentStep == 2" class="h-auto" v-motion-fade>
+      <Card v-if="currentStep == 2" class="h-auto  animate-border bg-black">
         <CardHeader>
           <CardTitle>Work Experience</CardTitle>
           <CardDescription class="card-title">Hi, I'm Alexei</CardDescription>
@@ -107,7 +107,7 @@ watch(currentStep, () => {
         </CardContent>
       
       </Card>
-      <Card v-if="currentStep == 3" class="h-auto" v-motion-fade>
+      <Card v-if="currentStep == 3" class="h-auto animate-border bg-black">
         <CardHeader>
           <CardTitle>My Projects</CardTitle>
           <CardDescription class="card-title">Check out my latest work</CardDescription>
@@ -137,7 +137,7 @@ watch(currentStep, () => {
       </Card>
     </div>
 
-    <Stepper v-model="currentStep" class="bg-white p-2 rounded-md mt-2">
+    <Stepper v-model="currentStep" class="bg-white dark:bg-black p-2 rounded-md mt-2">
       <div class="mt-4">Click on the steps: </div>
       <StepperItem v-for="(title, index) of stepper" :step="index">
         <StepperTrigger>

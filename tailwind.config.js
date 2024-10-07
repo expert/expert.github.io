@@ -56,6 +56,7 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        'anim-border': ""
       },
       borderRadius: {
       	xl: "calc(var(--radius) + 4px)",
@@ -80,13 +81,23 @@ module.exports = {
           from: { height: 'var(--radix-collapsible-content-height)' },
           to: { height: 0 },
         },
+        "border-animation": {
+          from: { "--angle": "0deg"},
+          to: { "--angle": "360deg"}
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "collapsible-down": "collapsible-down 0.2s ease-in-out",
         "collapsible-up": "collapsible-up 0.2s ease-in-out",
+        "border-animation": "3s border-animation linear infinite"
       },
+      backgroundImage: {
+        'gradient-border': "conic-gradient(from var(--angle), transparent 80%, #ff5d7b)"
+
+        // 'gradient-border': "conic-gradient(#00fa00, #c084fc, #ff5d7b, #00fa00)"
+      }
     },
   },
   plugins: [animate, require('daisyui')],

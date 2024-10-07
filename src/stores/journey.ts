@@ -9,7 +9,6 @@ export const useJourneyStore = defineStore('journey', () => {
   const name = ref('Alexei')
   const doubleCount = computed(() => step.value * 2)
   const setStep = function (s: number) {
-    console.log('ste[', s)
     step.value = s
   }
 

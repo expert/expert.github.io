@@ -1,5 +1,5 @@
 <template>
-  <main class="flex flex-col min-h-[100dvh] space-y-10 bg-white relative z-10">
+  <main class="flex flex-col min-h-[100dvh] space-y-10 bg-white dark:bg-black relative z-10">
       <section id="hero">
         <div class="mx-auto w-full max-w-2xl space-y-8">
           <div class="gap-2 flex justify-between">

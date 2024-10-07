@@ -62,8 +62,8 @@ export const DATA = {
       location: "Remote",
       title: "Babylon.js | Three.js | WebGL Developer",
       logoUrl: "",
-      start: "2024",
-      end: "2023",
+      start: "2023",
+      end: "2024",
       description:
         "",
     },
@@ -98,7 +98,7 @@ export const DATA = {
       location: "Chisinau, MD",
       title: "Software Engineer",
       logoUrl: "/assets/images/codefactory47-logo.jpg",
-      start: "2015",
+      start: "2016",
       end: "2020",
       description:
         "As a co-founder and author on the Themeforest Marketplace, I held the position of creating highly customizable, flexible, and contemporary templates and themes for a global user base. My primary focus encompassed the design, development, and meticulous testing of UX/UI components.",
@@ -111,7 +111,7 @@ export const DATA = {
       title: "Ext.js Frontend Developer",
       logoUrl: "/assets/images/estcomputers.png",
       start: "2015",
-      end: "",
+      end: "2016",
       description:
         "Developed UI components for a substantial application utilizing Ext.js, tailored for a Medical Health service. Collaborated with teams spanning the globe.",
     },
@@ -148,7 +148,7 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "Tank Firefight",
+      title: "Tank Firefight 3D",
       href: "https://papaya-daffodil-3351d0.netlify.app/",
       dates: "2023 - 2024",
       active: true,

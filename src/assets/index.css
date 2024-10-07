@@ -46,7 +46,9 @@
     --popover: 224 71.4% 4.1%;
     --popover-foreground: 210 20% 98%;
  
-    --card: 224 71.4% 4.1%;
+    /* --card: 224 71.4% 90.1%; */
+    --card: 255 100% 0%;
+
     --card-foreground: 210 20% 98%;
  
     --border: 215 27.9% 16.9%;
@@ -74,5 +76,45 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+  .animate-border:after,
+  .animate-border:before {
+    box-sizing: initial;
+  }
+
+  .animate-border {
+    @apply relative;
+    @apply 
+      after:content-[''] 
+      after:-inset-[2px] 
+      after:absolute 
+      after:z-[-1]
+      after:rounded-lg
+      after:bg-gradient-border
+      after:animate-border-animation;
+    @apply
+      before:content-[''] 
+      before:-inset-[2px] 
+      before:absolute 
+      before:z-[-1]
+      before:rounded-lg
+      before:bg-gradient-border
+      before:blur-md
+      before:opacity-50
+      before:animate-border-animation;
+  }
+
+}
+@layer components {
+  .btn-primary {
+    @apply animate-border;
+    /* &:after {
+      @apply inset-0 absolute bg-red-400;
+    } */
   }
 }

@@ -26,15 +26,14 @@ export const initialize = (elRef: Ref, store: typeof useJourneyStore) => {
 	const renderer = new THREE.WebGLRenderer({ antialias: true });
 	renderer.setSize( window.innerWidth, window.innerHeight );
 
+	window.addEventListener("resize", onWindowResize, false);
 
-window.addEventListener("resize", onWindowResize, false);
+	function onWindowResize() {
+		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.updateProjectionMatrix();
 
-function onWindowResize() {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-
-  renderer.setSize(window.innerWidth, window.innerHeight);
-}
+		renderer.setSize(window.innerWidth, window.innerHeight);
+	}
 
 	elRef.value.appendChild( renderer.domElement );
 
