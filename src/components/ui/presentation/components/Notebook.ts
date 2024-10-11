@@ -1,6 +1,8 @@
 import * as THREE from 'three'
 import { loadModel } from '../Loader'
 import { type SceneModel  } from '../Loader'
+import { StoreGeneric, storeToRefs } from 'pinia'
+import { watch } from 'vue'
 
 const Notebook = function() {
   console.log('Should start the Notebook')
@@ -8,45 +10,66 @@ const Notebook = function() {
 
   return {material}
 }
+const createVideoTexture = () => {
+  // 1. Get the video element
+  const video = document.getElementById('video');
+  // const video = Object.assign(document.createElement('video'), { src: '/assets/video/portfolio.mp4', crossOrigin: 'Anonymous', loop: true, play: true })
+ 
+  if (!(video instanceof HTMLVideoElement)) {
+    return
+  }
+  console.log('video', video.src)
+  // 2. Create a texture from the video
+  let videoTexture = new THREE.VideoTexture(video);
+
+  videoTexture.wrapT = THREE.RepeatWrapping;
+  videoTexture.repeat.y = -1;  // Flip the texture vertically
+
+  videoTexture.colorSpace = THREE.SRGBColorSpace;
+
+  videoTexture.needsUpdate = true;
+  // Ensure the video plays
+  video.play();
+  return videoTexture
+}
+const createVideoMaterial = (videoTexture: THREE.VideoTexture) => {
+   
+    // 3. Create a mesh material and set the video texture as the map
+    return new THREE.MeshStandardMaterial({ map: videoTexture });
+
+}
 
 const scaleDownBy = (x: number, y: number) => (scale: number) => [x / scale, y / scale]
-const initializeNotebook = (scene: THREE.Scene) => {
+const initializeNotebook = (scene: THREE.Scene, store: StoreGeneric) => {
   const notebook = Notebook()
 
+  const { video: videoUrl } = storeToRefs(store) 
+  
   const notebookModel = loadModel('/assets/models/macbook.glb').then((model) => {
     const sceneModel = model as SceneModel
     scene.add(sceneModel.scene)
     console.log(sceneModel)
+    const videoTexture = createVideoTexture()
 
-    // 1. Get the video element
-    const video = document.getElementById('video');
-
-    if (!(video instanceof HTMLVideoElement)) {
+    if (!videoTexture) {
       return
     }
-    // 2. Create a texture from the video
-    const videoTexture = new THREE.VideoTexture(video);
+    const videoMaterial = createVideoMaterial(videoTexture)
 
-    videoTexture.wrapT = THREE.RepeatWrapping;
-    videoTexture.repeat.y = -1;  // Flip the texture vertically
-
-    videoTexture.colorSpace = THREE.SRGBColorSpace;
-
-    // 3. Create a mesh material and set the video texture as the map
-    const videoMaterial = new THREE.MeshStandardMaterial({ map: videoTexture });
-
-    videoMaterial.emissive = new THREE.Color(0x000000);  // Set emissive to black to avoid extra brightness
-    videoMaterial.emissiveIntensity = 0;    
+    // videoMaterial.emissive = new THREE.Color(0x000000);  // Set emissive to black to avoid extra brightness
+    // videoMaterial.emissiveIntensity = 0;    
 
     // 4. Create a geometry (e.g., PlaneGeometry)
     // const geometryVideo = new THREE.PlaneGeometry(...scaleDownBy(14, 9)(4));  // Adjust size as needed
+    let displayMesh = null
     sceneModel.scene.traverse((child) => {
       // @ts-expect-error
       if (child.isMesh) {
         console.log(child.name);  //log and inspect mesh names here
         if (child.name === 'Display') {
           // child.rotation.z = Math.PI / 2
-          child.material = videoMaterial
+          displayMesh = child
+          child.material = createVideoMaterial(videoTexture)
         }
         // child.material = notebook.material
       }
@@ -56,8 +79,6 @@ const initializeNotebook = (scene: THREE.Scene) => {
 
     // sceneModel.scene.add(videoMesh)
 
-    // Ensure the video plays
-    video.play();
 
     // videoMaterial.emissive = new THREE.Color(0x000000);  // Set emissive to black to avoid extra brightness
     // videoMaterial.emissiveIntensity = 0;    
@@ -66,6 +87,19 @@ const initializeNotebook = (scene: THREE.Scene) => {
 
     sceneModel.scene.scale.set(10, 10, 10)
     sceneModel.scene.position.add(new THREE.Vector3(0, 170, 0))
+
+    watch(videoUrl, () => {
+      setTimeout(() => {
+        videoTexture.dispose()
+        videoMaterial.dispose()
+        const updateTexture  = createVideoTexture()
+        updateTexture.needsUpdate = true
+        displayMesh.material.dispose()
+        // displayMesh.
+        displayMesh.material = createVideoMaterial(updateTexture)
+        displayMesh.material.needUpdate = true
+      }, 100)
+    })
   })
   .catch(error => console.error(error))
   return notebook

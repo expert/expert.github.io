@@ -7,10 +7,14 @@ import { ref, computed } from 'vue'
 export const useJourneyStore = defineStore('journey', () => {
   const step = ref(-1)
   const name = ref('Alexei')
+  const video = ref('/assets/video/portfolio.mp4')
   const doubleCount = computed(() => step.value * 2)
   const setStep = function (s: number) {
     step.value = s
   }
+  const setVideo = function(url: string) {
+    video.value = url
+  }
 
-  return { step, name, doubleCount, setStep }
+  return { step, name, doubleCount, setStep, video, setVideo }
 })

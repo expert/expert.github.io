@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import Stats from 'three/addons/libs/stats.module.js';
-import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
+// import Stats from 'three/addons/libs/stats.module.js';
+// import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
 import { Ref } from 'vue';
 import { catmullCurveFromPath  } from '@/lib/utils';
 import Data from './data/scene.json'
@@ -89,7 +89,7 @@ export const initialize = (elRef: Ref, store: typeof useJourneyStore) => {
 	)
 
 	const componentNotebook = registerComponent(
-		() => initializeNotebook(scene),
+		() => initializeNotebook(scene, journeyStore),
 		(notebook, time) => {
 			animateNotebook(notebook, time, camera)
 		}

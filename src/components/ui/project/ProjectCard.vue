@@ -1,5 +1,8 @@
 <template>
-  <Card class="flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full">
+  <Card 
+  class="flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full"
+  @mouseenter="cardHover"
+  >
     <RouterLink v-if="!hidePreview" :to="href || '#'" class="block cursor-pointer">
       <template v-if="video">
         <video
@@ -72,8 +75,7 @@ import { ref, computed } from 'vue';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { RouterLink } from 'vue-router';
-// Use vue-markdown or similar library for markdown rendering in Vue
-// import MarkdownContent from '@/components/MarkdownContent.vue'; // assuming you have a markdown component
+import { useJourneyStore } from '@/stores/journey';
 
 interface ProjectLink {
   icon?: string;
@@ -101,4 +103,14 @@ const props = defineProps<Props>();
 const cleanedLink = computed(() =>
   props.link?.replace('https://', '').replace('www.', '').replace('/', '')
 );
+
+const { setVideo } = useJourneyStore()
+
+const cardHover = () => {
+  if (props.video) {
+    setVideo(props.video)
+  }
+}
+
+
 </script>
