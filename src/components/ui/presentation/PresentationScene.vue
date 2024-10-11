@@ -15,8 +15,8 @@ onMounted(() => {
   </div>
 
   <!-- HTML: Create a video element -->
-  <video id="video" style="display:none" autoplay loop muted playsinline>
-    <source src="/assets/video/Tank Firefight 3D Online Game.mp4" type="video/mp4">
+  <video id="video" style="display:none; border-radius: 20px;" autoplay loop muted playsinline>
+    <source src="/assets/video/realtyspace.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 </template>
