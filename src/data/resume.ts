@@ -18,6 +18,8 @@ export const DATA = {
     "Three.js",
     "Babylon.js",
     "Typescript",
+    "Css",
+    "Html",
     "TailwindCSS",
     "FIGMA",
     "Node.js",
@@ -75,38 +77,38 @@ export const DATA = {
       start: "2023",
       end: "2024",
       description:
-        "",
+        "I’m working on a game using Babylon.js and Three.js. I built a custom OOP framework to manage its structure and integrated the Havok physics engine for realistic simulations. I also implemented rigging for 3D models from Blender.",
     },
     {
       company: "TravelBusinessClass",
       href: "https://travelbusinessclass.com/",
-      badges: ["Vue3, Nuxt3, Websocket, Typescript"].flatMap(v => v.split(',')),
+      badges: ["Vue3, Nuxt3, Websocket, Typescript, Tailwind CSS"].flatMap(v => v.split(',')),
       location: "Chisinau, MD",
       title: "Vue.js | Sr. Frontend Developer",
       logoUrl: "/assets/images/tbc.jpg",
       start: "2022",
       end: "2023",
       description:
-        "Engineered a CRM system tailored to facilitate the management of leads and agents.",
+        "Developed a CRM system specifically designed to streamline the management of leads and agents.",
     },
     {
       company: "Bullyentertainment",
       href: "https://bullyentertainment.com/",
       badges: ["WebXR, THREE.js, Aframe.io, WebXR , Blender"].flatMap(v => v.split(',')),
       location: "Chisinau, MD",
-      title: "Three.js Sr.Frontend Developer",
+      title: "Three.js Creative Developer",
       logoUrl: "/assets/images/bully-logo.svg",
       start: "2020",
       end: "2022",
       description:
-        "Specialized as a Frontend Developer focused on creating applications using THREE.js and WebXR technologies.",
+        "I specialize as a front-end developer, focusing on building applications with Three.js and WebXR technologies.",
     },
     {
       company: "Codefactory47",
       href: "https://codefactory47.com",
-      badges: [],
+      badges: ["Team Leadership", "Theme Development", "PSD to Wordpress", "PSD to Wordpress", "Vue.js", "Agile Project Management", "Scrum", "Seo"],
       location: "Chisinau, MD",
-      title: "Software Engineer",
+      title: "Co-Founder",
       logoUrl: "/assets/images/codefactory47-logo.jpg",
       start: "2016",
       end: "2020",
@@ -118,12 +120,12 @@ export const DATA = {
       href: "https://estcomputer.com/",
       badges: ["Ext.js, Java, Spring Framework"].flatMap(v => v.split(',')),
       location: "Chisinau, Md",
-      title: "Ext.js Frontend Developer",
+      title: "Ext.js Javascript Developer",
       logoUrl: "/assets/images/estcomputers.png",
       start: "2015",
       end: "2016",
       description:
-        "Developed UI components for a substantial application utilizing Ext.js, tailored for a Medical Health service. Collaborated with teams spanning the globe.",
+        "Developed UI components for an extensive application using Ext.js, customized for a Medical Health service. Collaborated with global teams.",
     },
     {
       company: "Think Software (Hugsandi Menn)",
@@ -135,7 +137,7 @@ export const DATA = {
       start: "2010",
       end: "2015",
       description:
-        "As a CSS/HTML/JS developer, I specialized in creating dynamic websites tailored for Real Estate agencies. Proficiently translating PSD designs into HTML, I seamlessly integrate them into backend CMS and frameworks. My expertise extends to working with CMS platforms like MODX and WordPress, as well as frameworks including Kohana, Zend, and Symfony. I am also well-versed in template languages like Twig and Smarty.",
+        "As a CSS/HTML/JS developer, I specialize in creating dynamic websites tailored for Real Estate agencies. I proficiently translate PSD designs into HTML and seamlessly integrate them into backend CMS and frameworks. My expertise extends to working with CMS platforms like MODX and WordPress, as well as frameworks including Kohana, Zend, and Symfony. I am also well-versed in template languages like Twig and Smarty.",
     }
   ],
   education: [
@@ -328,7 +330,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "/public/assets/videos/ferienchecker.mp4",
+      video: "/assets/videos/ferienchecker.mp4",
     },
     {
       title: "Realtyspace - Real estate WordPress Theme",
@@ -338,7 +340,7 @@ export const DATA = {
       description:
         "Contributed to the creation of a top-rated and best-selling Real Estate WordPress theme, earning accolades within its category. My role encompassed crafting all frontend interfaces with an emphasis on extensive customization options and diverse variations. I undertook CSS/HTML/JS coding and seamless integration within the WordPress environment.",
       technologies: [
-        "BEM, Sass, Gulp, Twitter Bootstrap, full responsive, PixelPerfect, Google API’s, Smarty, Trellis, Ansible, VagrantUp"
+        "BEM, Sass, Gulp, Twitter Bootstrap, Responsiveness, PixelPerfect, Google API’s, Smarty, Trellis, Ansible, VagrantUp"
       ].flatMap(v => v.split(',')),
       links: [
         {
