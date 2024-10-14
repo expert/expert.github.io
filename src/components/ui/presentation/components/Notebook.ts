@@ -13,7 +13,6 @@ const Notebook = function() {
 const createVideoTexture = () => {
   // 1. Get the video element
   const video = document.getElementById('video');
-  // const video = Object.assign(document.createElement('video'), { src: '/assets/video/portfolio.mp4', crossOrigin: 'Anonymous', loop: true, play: true })
  
   if (!(video instanceof HTMLVideoElement)) {
     return
@@ -34,7 +33,6 @@ const createVideoTexture = () => {
 const createVideoMaterial = (videoTexture: THREE.VideoTexture) => {
     // 3. Create a mesh material and set the video texture as the map
     return new THREE.MeshStandardMaterial({ map: videoTexture });
-
 }
 
 const scaleDownBy = (x: number, y: number) => (scale: number) => [x / scale, y / scale]

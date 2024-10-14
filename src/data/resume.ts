@@ -12,11 +12,14 @@ export const DATA = {
   skills: [
     "Vue.js",
     "Nuxt.js",
+    "Pinia",
+    "Vuex",
     "WebGL",
     "Three.js",
     "Babylon.js",
     "Typescript",
     "TailwindCSS",
+    "FIGMA",
     "Node.js",
     "Postgres",
     "Docker",
@@ -28,6 +31,19 @@ export const DATA = {
     email: "alexei.cernobai@gmail.com",
     tel: "+(373) 79226130",
     social: {
+      email: {
+        name: "Send Email",
+        url: "mailto:alexei.cernobai@gmail.com",
+        // icon: Icons.email,
+
+        navbar: false,
+      },
+      Portfolio: {
+        name: "Portfolio",
+        url: "https://expert.github.io/",
+        // icon: Icons.github,
+        navbar: true,
+      },
       GitHub: {
         name: "GitHub",
         url: "https://github.com/expert/",
@@ -40,13 +56,6 @@ export const DATA = {
         // icon: Icons.linkedin,
 
         navbar: true,
-      },
-      email: {
-        name: "Send Email",
-        url: "mailto:alexei.cernobai@gmail.com",
-        // icon: Icons.email,
-
-        navbar: false,
       },
       upwork: {
         name: "Upwork",
@@ -71,7 +80,7 @@ export const DATA = {
     {
       company: "TravelBusinessClass",
       href: "https://travelbusinessclass.com/",
-      badges: ["Vue3, Nuxt3, Websocket, Typescript"],
+      badges: ["Vue3, Nuxt3, Websocket, Typescript"].flatMap(v => v.split(',')),
       location: "Chisinau, MD",
       title: "Vue.js | Sr. Frontend Developer",
       logoUrl: "/assets/images/tbc.jpg",
@@ -83,7 +92,7 @@ export const DATA = {
     {
       company: "Bullyentertainment",
       href: "https://bullyentertainment.com/",
-      badges: ["WebXR", "THREE.js, Aframe.io, WebXR , Blender"],
+      badges: ["WebXR, THREE.js, Aframe.io, WebXR , Blender"].flatMap(v => v.split(',')),
       location: "Chisinau, MD",
       title: "Three.js Sr.Frontend Developer",
       logoUrl: "/assets/images/bully-logo.svg",
@@ -107,7 +116,7 @@ export const DATA = {
     {
       company: "Est Computers",
       href: "https://estcomputer.com/",
-      badges: ["Ext.js, Java, Spring Framework"],
+      badges: ["Ext.js, Java, Spring Framework"].flatMap(v => v.split(',')),
       location: "Chisinau, Md",
       title: "Ext.js Frontend Developer",
       logoUrl: "/assets/images/estcomputers.png",
@@ -310,7 +319,7 @@ export const DATA = {
         "Engaged in full stack development of an application utilizing NUXT.js and Node.js, with the Koa framework as the backbone. Encompassing a comprehensive suite of features, the application included membership user capabilities for listing publication, seamless integration of PayPal and SMS payments, email notifications, and the generation of PDF invoices.",
       technologies: [
         "TypeScript, ECMA2017, Nuxt.js, Vue.js, Vue Routers, Eslint, Prettier, Element.ui, SSR, Nodejs, Koa.js, TypeORM, Mysql, Paypal API, CRON, PDF builder, Emails, SMS payment, Facebook Auth, JSON Web Token, Rest Api, E2E testing, PM2, NGINX"
-      ],
+      ].flatMap(v => v.split(',')),
       links: [
         {
           type: "Website",
@@ -330,7 +339,7 @@ export const DATA = {
         "Contributed to the creation of a top-rated and best-selling Real Estate WordPress theme, earning accolades within its category. My role encompassed crafting all frontend interfaces with an emphasis on extensive customization options and diverse variations. I undertook CSS/HTML/JS coding and seamless integration within the WordPress environment.",
       technologies: [
         "BEM, Sass, Gulp, Twitter Bootstrap, full responsive, PixelPerfect, Google API’s, Smarty, Trellis, Ansible, VagrantUp"
-      ],
+      ].flatMap(v => v.split(',')),
       links: [
         {
           type: "Demo",

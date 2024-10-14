@@ -5,6 +5,12 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu"
 import { PresentationScene } from "@/components/ui/presentation"
+import { useJourneyStore  } from "./stores/journey";
+
+const  { setStep } = useJourneyStore()
+const restartScene = () => {
+  setStep(0)
+}
 
 </script>
 
@@ -13,7 +19,7 @@ import { PresentationScene } from "@/components/ui/presentation"
   <NavigationMenu class="menu p-4 bg-black">
     <NavigationMenuList>
       <NavigationMenuItem>
-        <RouterLink class="text-white text-lg" to="/">Presentation</RouterLink>
+        <RouterLink class="text-white text-lg" to="/" @click="restartScene">Presentation</RouterLink>
       </NavigationMenuItem>
       <NavigationMenuItem>
         <RouterLink class="text-white text-lg" to="/resume">Resume</RouterLink>

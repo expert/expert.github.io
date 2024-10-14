@@ -23,6 +23,7 @@ import { DATA } from '@/data/resume.ts';
 import ResumeCard from "@/components/ui/resume/ResumeCard.vue";
 import ProjectCard from "@/components/ui/project/ProjectCard.vue";
 import { useJourneyStore } from "@/stores/journey"
+import { storeToRefs } from "pinia";
 
 // type Content = {
 //   tag: string;
@@ -31,10 +32,16 @@ import { useJourneyStore } from "@/stores/journey"
 // };
 
 const currentStep = ref(0)
-const stepper = ["About", "Education", "Experience", "Projects"]
-const { setStep } = useJourneyStore()
+const stepper = ["About", "Education", "Experience", "Projects", "Contacts"]
+const journeyStore =  useJourneyStore()
+const { setStep } = journeyStore
+const { step } = storeToRefs(journeyStore)
 watch(currentStep, () => {
   setStep(currentStep.value)
+})
+
+watch(step, (v) => {
+  currentStep.value = v
 })
 
 </script>
@@ -106,7 +113,6 @@ watch(currentStep, () => {
 
           </div>
         </CardContent>
-      
       </Card>
       <Card v-if="currentStep == 3" class="h-auto animate-border bg-black">
         <CardHeader>
@@ -118,23 +124,40 @@ watch(currentStep, () => {
             <div
             v-for="project in DATA.projects"
             :key="project.title"
-          >
-            <ProjectCard
-              :href="project.href"
-              :key="project.title"
-              :title="project.title"
-              :description="project.description"
-              :dates="project.dates"
-              :tags="project.technologies"
-              :image="project.image"
-              :video="project.video"
-              :links="project.links"
-              hide-preview
-            />
-          </div>
+            >
+              <ProjectCard
+                :href="project.href"
+                :key="project.title"
+                :title="project.title"
+                :description="project.description"
+                :dates="project.dates"
+                :tags="project.technologies"
+                :image="project.image"
+                :video="project.video"
+                :links="project.links"
+                hide-preview
+              />
+            </div>
           </div>
         </CardContent>
       
+      </Card>
+      <Card v-if="currentStep == 4" class="h-auto animate-border bg-black">
+        <CardHeader>
+          <CardTitle>Contact</CardTitle>
+          <CardDescription class="card-title">Get in Touch</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p class="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <!-- Here are my contacts:  -->
+              <dl v-for="contact of DATA.contact.social">
+                <dt>{{ contact.name }}:</dt>
+                <dd> 
+                  <a :href="contact.url" class="underline text-primary"  target="_blank">{{ contact.url.replace('mailto:', '') }}</a> 
+                </dd>
+              </dl>
+            </p>
+        </CardContent>
       </Card>
     </div>
 

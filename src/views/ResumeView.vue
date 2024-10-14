@@ -1,5 +1,5 @@
 <template>
-  <main class="flex flex-col min-h-[100dvh] space-y-10 bg-white dark:bg-black relative z-10">
+  <main class="flex flex-col min-h-[100dvh] space-y-10 bg-white dark:bg-black relative z-10 p-4">
       <section id="hero">
         <div class="mx-auto w-full max-w-2xl space-y-8">
           <div class="gap-2 flex justify-between">
@@ -15,7 +15,7 @@
                 >
                   {{  DATA.description }}
                 </div>
-                <Avatar>
+                <Avatar class="h-32 w-32">
                   <AvatarImage :src="DATA.avatarUrl" :alt="DATA.name" />
                   <AvatarFallback>{{ DATA.initials }}</AvatarFallback>
                 </Avatar>
@@ -148,11 +148,14 @@
               <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl">
                 Get in Touch
               </h2>
-              <p class="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Here are my contacts: 
-                <div v-for="contact of DATA.contact.social">
-                  {{ contact.name }}: <br> <a :href="contact.url" class="underline text-primary"  target="_blank">{{ contact.url }}</a> 
-                </div>
+              <p class="mx-auto max-w-[600px] text-muted-foreground text-xs md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed text-ellipsis">
+                <!-- Here are my contacts:  -->
+                <dl v-for="contact of DATA.contact.social">
+                  <dt>{{ contact.name }}:</dt>
+                  <dd> 
+                    <a :href="contact.url" class="underline text-primary "  target="_blank">{{ contact.url.replace('mailto:', '') }}</a> 
+                  </dd>
+                </dl>
                 
               </p>
             </div>

@@ -9,10 +9,10 @@
       </div>
       <div class="flex-grow ml-4 items-center flex-col group">
         <CardHeader class="pl-0">
-          <div class="flex items-center justify-between gap-x-2 text-base">
-            <h3 class="inline-flex items-center justify-center font-semibold leading-none text-xs sm:text-sm">
+          <div class="flex flex-wrap gap-2 items-center justify-between gap-x-2 text-base">
+            <h3 class="inline-flex flex-wrap gap-2 items-center md:justify-center font-semibold leading-none text-xs sm:text-sm">
               {{ title }}
-              <span v-if="badges" class="inline-flex gap-x-1">
+              <span v-if="badges" class="inline-flex gap-1 flex-wrap">
                 <Badge
                   v-for="(badge, index) in badges"
                   :key="index"
