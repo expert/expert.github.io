@@ -65,13 +65,14 @@ const initializeNotebook = (scene: THREE.Scene, store: StoreGeneric) => {
 
     // 4. Create a geometry (e.g., PlaneGeometry)
     // const geometryVideo = new THREE.PlaneGeometry(...scaleDownBy(14, 9)(4));  // Adjust size as needed
-    let displayMesh = null
+    let displayMesh: THREE.Mesh | THREE.Object3D | null = null
     sceneModel.scene.traverse((child) => {
       // @ts-expect-error
       if (child.isMesh) {
         if (child.name === 'Display') {
           // child.rotation.z = Math.PI / 2
           displayMesh = child
+          // @ts-expect-error
           child.material = createVideoMaterial(videoTexture)
         }
         // child.material = notebook.material
@@ -99,10 +100,17 @@ const initializeNotebook = (scene: THREE.Scene, store: StoreGeneric) => {
         videoTexture.dispose()
         videoMaterial.dispose()
         const updateTexture  = createVideoTexture()
+        if (!updateTexture) {
+          return
+        }
         updateTexture.needsUpdate = true
+        // @ts-expect-error
         displayMesh.material.dispose()
         // displayMesh.
+        // @ts-expect-error
         displayMesh.material = createVideoMaterial(updateTexture)
+
+        // @ts-expect-error
         displayMesh.material.needUpdate = true
       }, 100)
     })

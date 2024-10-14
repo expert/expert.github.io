@@ -60,7 +60,7 @@ const initializeSmartphone = (scene: THREE.Scene, store: StoreGeneric) => {
     videoMaterial.emissive = new THREE.Color(0x000000);  // Set emissive to black to avoid extra brightness
     videoMaterial.emissiveIntensity = 0;    
 
-    let displayMesh = null
+    let displayMesh: THREE.Mesh | THREE.Object3D | null = null
     sceneModel.scene.traverse((child) => {
       // @ts-expect-error
       if (child.isMesh) {
@@ -68,6 +68,7 @@ const initializeSmartphone = (scene: THREE.Scene, store: StoreGeneric) => {
           // child.rotation.z = Math.PI / 2
           displayMesh = child
           displayMesh.position.add(new THREE.Vector3(0, 0, 0.1))
+          // @ts-expect-error
           child.material = createVideoMaterial(videoTexture)
         }
       }
@@ -84,9 +85,14 @@ const initializeSmartphone = (scene: THREE.Scene, store: StoreGeneric) => {
         videoTexture.dispose()
         videoMaterial.dispose()
         const updateTexture  = createVideoTexture()
+        if (!updateTexture) {
+          return
+        }
         updateTexture.needsUpdate = true
         // displayMesh.material.dispose()
+        // @ts-expect-error
         displayMesh.material = createVideoMaterial(updateTexture)
+        // @ts-expect-error
         displayMesh.material.needUpdate = true
       }, 100)
     })
