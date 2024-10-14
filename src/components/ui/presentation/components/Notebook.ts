@@ -69,7 +69,6 @@ const initializeNotebook = (scene: THREE.Scene, store: StoreGeneric) => {
     sceneModel.scene.traverse((child) => {
       // @ts-expect-error
       if (child.isMesh) {
-        console.log(child.name);  //log and inspect mesh names here
         if (child.name === 'Display') {
           // child.rotation.z = Math.PI / 2
           displayMesh = child

@@ -50,7 +50,6 @@ const initializeSmartphone = (scene: THREE.Scene, store: StoreGeneric) => {
   const smartphoneModel = loadModel('/assets/models/smartphone.glb').then((model) => {
     const sceneModel = model as SceneModel
     scene.add(sceneModel.scene)
-    console.log(sceneModel)
     const videoTexture = createVideoTexture()
 
     if (!videoTexture) {
@@ -65,7 +64,6 @@ const initializeSmartphone = (scene: THREE.Scene, store: StoreGeneric) => {
     sceneModel.scene.traverse((child) => {
       // @ts-expect-error
       if (child.isMesh) {
-        console.log(child.name);  //log and inspect mesh names here
         if (child.name === 'Plane001') {
           // child.rotation.z = Math.PI / 2
           displayMesh = child

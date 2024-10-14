@@ -316,6 +316,20 @@
     "@floating-ui/utils" "^0.2.8"
     vue-demi ">=0.13.0"
 
+"@gtm-support/core@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@gtm-support/core/-/core-3.0.1.tgz#0e545a46d40ddc9192c478f990edeed523f9c85d"
+  integrity sha512-SctcoqvvAbGAgZzOb7DZ4wjbZF3ZS7Las3qIEByv6g7mzPf4E9LpRXcQzjmywYLcUx2jys7PWJAa3s5slvj/0w==
+
+"@gtm-support/vue-gtm@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@gtm-support/vue-gtm/-/vue-gtm-3.1.0.tgz#e1b292a8ed15c01f9c594aca3d5210433eea0ecf"
+  integrity sha512-kGUnCI+Z5lBeCKd7rzgU7UoFU8Q0EkJfh17SgeyAyx8cLdISqeq54BNJKZrME3WXersoigLZVJ1GLs0buYD3lA==
+  dependencies:
+    "@gtm-support/core" "^3.0.1"
+  optionalDependencies:
+    vue-router ">= 4.4.1 < 5.0.0"
+
 "@internationalized/date@^3.5.4":
   version "3.5.5"
   resolved "https://registry.npmjs.org/@internationalized/date/-/date-3.5.5.tgz"
@@ -2291,7 +2305,7 @@ vue-demi@>=0.13.0, vue-demi@>=0.14.10, vue-demi@>=0.14.8, vue-demi@^0.14.10:
   resolved "https://registry.npmjs.org/vue-demi/-/vue-demi-0.14.10.tgz"
   integrity sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==
 
-vue-router@4:
+vue-router@4, "vue-router@>= 4.4.1 < 5.0.0":
   version "4.4.5"
   resolved "https://registry.npmjs.org/vue-router/-/vue-router-4.4.5.tgz"
   integrity sha512-4fKZygS8cH1yCyuabAXGUAsyi1b2/o/OKgu/RUb+znIYOxPRxdkytJEx+0wGcpBE1pX6vUgh5jwWOKRGvuA/7Q==

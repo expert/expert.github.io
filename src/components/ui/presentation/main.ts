@@ -50,7 +50,6 @@ export const initialize = (elRef: Ref, store: typeof useJourneyStore) => {
 	const cameraComponent = registerComponent(
 		() => {
 			const initialized = initializeCamera(scene, renderer, panelGUI, journeyStore)
-			console.log(initialized)
 			camera = initialized.camera
 			return initialized
 		},
