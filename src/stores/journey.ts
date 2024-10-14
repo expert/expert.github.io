@@ -17,7 +17,7 @@ export const useJourneyStore = defineStore('journey', () => {
   }
 
   const isPhoneVideo = computed(() => {
-    return video.value === '/public/assets/videos/creative.mp4'
+    return video.value === '/assets/videos/creative.mp4'
   })
 
   return { step, name, doubleCount, setStep, video, setVideo, isPhoneVideo }
