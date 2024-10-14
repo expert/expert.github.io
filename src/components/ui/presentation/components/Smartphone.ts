@@ -39,7 +39,7 @@ const scaleDownBy = (x: number, y: number) => (scale: number) => [x / scale, y /
 
 const scaleModelSize = (model: THREE.Mesh) => {
   return {
-    initial: () =>  model.scale.set(3, 3, 3),
+    initial: () =>  model.scale.set(2.2, 2.2, 2.2),
     hide: () =>  model.scale.set(0, 0, 0)
   }
 }
@@ -79,7 +79,8 @@ const initializeSmartphone = (scene: THREE.Scene, store: StoreGeneric) => {
     const setupScale = scaleModelSize(sceneModel.scene)
 
     setupScale.hide()
-    sceneModel.scene.position.add(new THREE.Vector3(0, 170, 0))
+    sceneModel.scene.position.add(new THREE.Vector3(0, 166, 0))
+    sceneModel.scene.rotateY(-Math.PI / 2)
 
     watch(videoUrl, () => {
       setTimeout(() => {
@@ -93,7 +94,6 @@ const initializeSmartphone = (scene: THREE.Scene, store: StoreGeneric) => {
       }, 100)
     })
     watch(isPhoneVideo, () => {
-      console.log('isPhoneVideo', isPhoneVideo.value)
       if (isPhoneVideo.value) {
         setupScale.initial()
       } else {

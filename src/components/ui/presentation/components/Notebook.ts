@@ -95,6 +95,7 @@ const initializeNotebook = (scene: THREE.Scene, store: StoreGeneric) => {
     // sceneModel.scene.scale.set(10, 10, 10)
     setupScale.initial()
     sceneModel.scene.position.add(new THREE.Vector3(0, 170, 0))
+    sceneModel.scene.rotateY(-Math.PI / 2)
 
     watch(videoUrl, () => {
       setTimeout(() => {
