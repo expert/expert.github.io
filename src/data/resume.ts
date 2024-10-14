@@ -213,7 +213,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "/public/assets/videos/portfolio.mp4",
+      video: "/assets/videos/portfolio.mp4",
     },
     {
       title: "Creative Factory",
@@ -236,7 +236,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "/public/assets/videos/creative.mp4",
+      video: "/assets/videos/creative.mp4",
     },
     {
       title: "Emerging Markets",
@@ -260,7 +260,7 @@ export const DATA = {
       ],
       image: "",
       video:
-        "/public/assets/videos/EMarkets video.mp4",
+        "/assets/videos/EMarkets video.mp4",
     },
     {
       title: "Travellbusinessclass.com",
@@ -284,7 +284,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "/public/assets/videos/Travelbusinessclass.mp4",
+      video: "/assets/videos/Travelbusinessclass.mp4",
     },
     {
       title: "Wealty.co",
@@ -308,7 +308,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "/public/assets/videos/wealty.mp4",
+      video: "/assets/videos/wealty.mp4",
     },
     {
       title: "Ferienchecker.at - Events Portal",
@@ -349,7 +349,7 @@ export const DATA = {
       ],
       image: "",
       video:
-        "/public/assets/videos/realtyspace.mp4",
+        "/assets/videos/realtyspace.mp4",
     },
   ]
 } as const;
