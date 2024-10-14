@@ -111,7 +111,6 @@ const initializeNotebook = (scene: THREE.Scene, store: StoreGeneric) => {
     })
 
     watch(isPhoneVideo, () => {
-      console.log('isPhoneVideo', isPhoneVideo.value)
       if (isPhoneVideo.value) {
         setupScale.hide()
       } else {

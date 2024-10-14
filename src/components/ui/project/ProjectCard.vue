@@ -3,7 +3,7 @@
   class="flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full"
   @mouseenter="cardHover"
   >
-    <RouterLink v-if="!hidePreview" :to="href || '#'" class="block cursor-pointer">
+    <a v-if="!hidePreview" :href="href || '#'" target="_blank" class="block cursor-pointer">
       <template v-if="video">
         <video
           :src="video"
@@ -21,7 +21,7 @@
           class="h-40 w-full overflow-hidden object-cover object-top"
         />
       </template>
-    </RouterLink>
+    </a>
 
     <CardHeader class="px-2">
       <div class="space-y-1">
@@ -41,7 +41,7 @@
           <Badge
             v-for="(tag, index) in tags"
             :key="index"
-            class="px-1 py-0 text-[10px]"
+            class="px-4 py-2 text-[12px]"
             variant="secondary"
           >
             {{ tag }}

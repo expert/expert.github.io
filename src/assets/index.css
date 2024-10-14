@@ -111,8 +111,14 @@
 
 }
 @layer components {
+  .btn {
+    
+  }
+  .btn:active:focus {
+    transform: scale(1)
+  }
   .btn-primary {
-    @apply animate-border;
+    /* @apply animate-border; */
     /* &:after {
       @apply inset-0 absolute bg-red-400;
     } */

@@ -17,7 +17,6 @@ const createVideoTexture = () => {
   if (!(video instanceof HTMLVideoElement)) {
     return
   }
-  console.log('video', video.src)
   // 2. Create a texture from the video
   let videoTexture = new THREE.VideoTexture(video);
 

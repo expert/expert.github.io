@@ -21,7 +21,8 @@ export const DATA = {
     "Postgres",
     "Docker",
     "Mysql",
-    "WordPress"
+    "WordPress",
+    "UI/UX"
   ],
   contact: {
     email: "alexei.cernobai@gmail.com",
@@ -120,7 +121,7 @@ export const DATA = {
       href: "https://thinksoftware.co.uk/",
       badges: [],
       location: "Chisinau/Iceland",
-      title: "Bitcoin Protocol Engineer",
+      title: "Jr. Frontend Developer",
       logoUrl: "/assets/images/think-software-logo-black.svg",
       start: "2010",
       end: "2015",
@@ -322,7 +323,7 @@ export const DATA = {
     },
     {
       title: "Realtyspace - Real estate WordPress Theme",
-      href: "https://automatic.chat",
+      href: "https://realtyspace.codefactory47.com/",
       dates: "2020",
       active: true,
       description:

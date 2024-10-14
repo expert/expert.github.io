@@ -40,20 +40,21 @@ watch(currentStep, () => {
 </script>
 
 <template>
-  <div class="journey pr-4">
-    <div>
+  <div class="journey pr-4 max-w-[750px] mt-32 ml-auto mr-auto">
+
+    <div class="">
       <Card v-if="currentStep == 0"  class="h-auto animate-border bg-black">
         <CardHeader>
           <CardTitle>About</CardTitle>
-          <CardDescription class="card-title">Hi, I'm Alexei</CardDescription>
+          <CardDescription class="card-title">Hi, I'm Cernobai Alexei</CardDescription>
         </CardHeader>
         <CardContent>
           {{ DATA.summary }}
         </CardContent>
-        <CardFooter>
+        <CardFooter class="flex-wrap gap-2">
           Skills:
 
-          <Badge v-for="skill of DATA.skills">{{ skill }}</Badge>
+          <Badge class="gap-2" v-for="skill of DATA.skills">{{ skill }}</Badge>
         </CardFooter>
       </Card>
       <Card v-if="currentStep == 1" class="h-auto animate-border bg-black">
@@ -113,7 +114,7 @@ watch(currentStep, () => {
           <CardDescription class="card-title">Check out my latest work</CardDescription>
         </CardHeader>
         <CardContent class="overflow-auto max-h-72">
-          <div class="grid grid-cols-2 gap-4 ">
+          <div class="grid grid-cols-1 gap-4 ">
             <div
             v-for="project in DATA.projects"
             :key="project.title"

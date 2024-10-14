@@ -117,7 +117,7 @@ const initializeCamera = (
 	
   const camera = createCameraPerspective()
 	const controls = new OrbitControls( camera, renderer.domElement );
-  controls.target.set(0, 210, 0)
+  controls.target.set(0, 210.1, 0)
   controls.update()
   const cameraSteps = cameraInfo(CameraData)
 
