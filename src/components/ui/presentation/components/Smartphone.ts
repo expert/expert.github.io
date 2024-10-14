@@ -4,7 +4,7 @@ import { type SceneModel  } from '../Loader'
 import { StoreGeneric, storeToRefs } from 'pinia'
 import { watch } from 'vue'
 
-const Notebook = function() {
+const Smartphone = function() {
   console.log('Should start the Notebook')
   const material = new THREE.MeshStandardMaterial({ color: 0x808080})
 
@@ -13,17 +13,16 @@ const Notebook = function() {
 const createVideoTexture = () => {
   // 1. Get the video element
   const video = document.getElementById('video');
-  // const video = Object.assign(document.createElement('video'), { src: '/assets/video/portfolio.mp4', crossOrigin: 'Anonymous', loop: true, play: true })
  
   if (!(video instanceof HTMLVideoElement)) {
     return
   }
+  console.log('video', video.src)
   // 2. Create a texture from the video
   let videoTexture = new THREE.VideoTexture(video);
 
   videoTexture.wrapT = THREE.RepeatWrapping;
   videoTexture.repeat.y = -1;  // Flip the texture vertically
-
   videoTexture.colorSpace = THREE.SRGBColorSpace;
 
   videoTexture.needsUpdate = true;
@@ -34,24 +33,22 @@ const createVideoTexture = () => {
 const createVideoMaterial = (videoTexture: THREE.VideoTexture) => {
     // 3. Create a mesh material and set the video texture as the map
     return new THREE.MeshStandardMaterial({ map: videoTexture });
-
 }
 
 const scaleDownBy = (x: number, y: number) => (scale: number) => [x / scale, y / scale]
 
 const scaleModelSize = (model: THREE.Mesh) => {
   return {
-    initial: () =>  model.scale.set(10, 10, 10),
+    initial: () =>  model.scale.set(3, 3, 3),
     hide: () =>  model.scale.set(0, 0, 0)
   }
 }
-
-const initializeNotebook = (scene: THREE.Scene, store: StoreGeneric) => {
-  const notebook = Notebook()
+const initializeSmartphone = (scene: THREE.Scene, store: StoreGeneric) => {
+  const smartphone = Smartphone()
 
   const { video: videoUrl, isPhoneVideo } = storeToRefs(store) 
   
-  const notebookModel = loadModel('/assets/models/macbook.glb').then((model) => {
+  const smartphoneModel = loadModel('/assets/models/smartphone.glb').then((model) => {
     const sceneModel = model as SceneModel
     scene.add(sceneModel.scene)
     console.log(sceneModel)
@@ -62,38 +59,26 @@ const initializeNotebook = (scene: THREE.Scene, store: StoreGeneric) => {
     }
     const videoMaterial = createVideoMaterial(videoTexture)
 
-    // videoMaterial.emissive = new THREE.Color(0x000000);  // Set emissive to black to avoid extra brightness
-    // videoMaterial.emissiveIntensity = 0;    
+    videoMaterial.emissive = new THREE.Color(0x000000);  // Set emissive to black to avoid extra brightness
+    videoMaterial.emissiveIntensity = 0;    
 
-    // 4. Create a geometry (e.g., PlaneGeometry)
-    // const geometryVideo = new THREE.PlaneGeometry(...scaleDownBy(14, 9)(4));  // Adjust size as needed
     let displayMesh = null
     sceneModel.scene.traverse((child) => {
       // @ts-expect-error
       if (child.isMesh) {
         console.log(child.name);  //log and inspect mesh names here
-        if (child.name === 'Display') {
+        if (child.name === 'Plane001') {
           // child.rotation.z = Math.PI / 2
           displayMesh = child
+          displayMesh.position.add(new THREE.Vector3(0, 0, 0.1))
           child.material = createVideoMaterial(videoTexture)
         }
-        // child.material = notebook.material
       }
     });
-    // 5. Create the mesh with the geometry and material
-    // const videoMesh = new THREE.Mesh(geometryVideo, videoMaterial);
 
-    // sceneModel.scene.add(videoMesh)
-
-
-    // videoMaterial.emissive = new THREE.Color(0x000000);  // Set emissive to black to avoid extra brightness
-    // videoMaterial.emissiveIntensity = 0;    
-    // videoMesh.rotateY(-Math.PI / 2)
-    // videoMesh.position.add(new THREE.Vector3(0, 1.22, -1.255))
     const setupScale = scaleModelSize(sceneModel.scene)
 
-    // sceneModel.scene.scale.set(10, 10, 10)
-    setupScale.initial()
+    setupScale.hide()
     sceneModel.scene.position.add(new THREE.Vector3(0, 170, 0))
 
     watch(videoUrl, () => {
@@ -102,28 +87,26 @@ const initializeNotebook = (scene: THREE.Scene, store: StoreGeneric) => {
         videoMaterial.dispose()
         const updateTexture  = createVideoTexture()
         updateTexture.needsUpdate = true
-        displayMesh.material.dispose()
-        // displayMesh.
+        // displayMesh.material.dispose()
         displayMesh.material = createVideoMaterial(updateTexture)
         displayMesh.material.needUpdate = true
       }, 100)
     })
-
     watch(isPhoneVideo, () => {
       console.log('isPhoneVideo', isPhoneVideo.value)
       if (isPhoneVideo.value) {
-        setupScale.hide()
-      } else {
         setupScale.initial()
+      } else {
+        setupScale.hide()
       }
     })
   })
   .catch(error => console.error(error))
-  return notebook
+  return smartphone
 } 
 
-const animateNotebook = (notebook: unknown, time: number, camera: THREE.PerspectiveCamera): void => {
+const animateSmartphone = (smartphone: unknown, time: number, camera: THREE.PerspectiveCamera): void => {
 
 } 
 
-export { initializeNotebook, animateNotebook }
+export { initializeSmartphone, animateSmartphone }

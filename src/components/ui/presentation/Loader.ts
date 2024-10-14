@@ -10,7 +10,7 @@ const loader = new GLTFLoader();
 // dracoLoader.setDecoderPath( '/examples/jsm/libs/draco/' );
 // loader.setDRACOLoader( dracoLoader );
 export type SceneModel = {
-  scene: Group<Object3DEventMap> | THREE.Mesh,
+  scene: THREE.Mesh,
   animations: AnimationClip[],
   cameras: Camera[],
   assets: unknown

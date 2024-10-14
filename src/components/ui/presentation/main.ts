@@ -10,6 +10,7 @@ import { initializeParticle, animateParticle } from './components/BrainParticles
 import { initializeCity, animateCity } from './components/City';
 import { initializeCamera, animateCamera } from './components/Camera';
 import { animateNotebook, initializeNotebook } from './components/Notebook';
+import { initializeSmartphone, animateSmartphone } from './components/Smartphone';
 import { useJourneyStore  } from '@/stores/journey';
 
 const registerComponent = <T>(init: () => T, animate: (component: T, time: number) => void) => {
@@ -92,6 +93,13 @@ export const initialize = (elRef: Ref, store: typeof useJourneyStore) => {
 		() => initializeNotebook(scene, journeyStore),
 		(notebook, time) => {
 			animateNotebook(notebook, time, camera)
+		}
+	)
+
+	const componentSmartphone = registerComponent(
+		() => initializeSmartphone(scene, journeyStore),
+		(smartphone, time) => {
+			animateSmartphone(smartphone, time, camera)
 		}
 	)
 
