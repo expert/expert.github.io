@@ -171,5 +171,16 @@ import ResumeCard from '@/components/ui/resume/ResumeCard.vue';
 import { Badge } from '@/components/ui/badge';
 import ProjectCard from '@/components/ui/project/ProjectCard.vue'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { GtmSupport, useGtm } from '@gtm-support/vue-gtm';
 
+
+const gtm: GtmSupport | undefined = useGtm()
+gtm?.trackEvent({
+  event: 'ResumeView',
+  category: 'visits',
+  action: 'open',
+  label: 'Open ResumePage trigger',
+  value: 5000,
+  noninteraction: false,
+});
 </script>

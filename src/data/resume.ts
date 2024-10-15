@@ -105,7 +105,7 @@ export const DATA = {
     },
     {
       company: "Codefactory47",
-      href: "https://codefactory47.com",
+      href: "https://themeforest.net/user/codefactory47",
       badges: ["Team Leadership", "Theme Development", "PSD to Wordpress", "PSD to Wordpress", "Vue.js", "Agile Project Management", "Scrum", "Seo"],
       location: "Chisinau, MD",
       title: "Co-Founder",
