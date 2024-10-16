@@ -19,9 +19,11 @@
     --border: 220 13% 91%;
     --input: 220 13% 91%;
  
+    
     --primary: 220.9 39.3% 11%;
     --primary-foreground: 210 20% 98%;
- 
+    --fallback-p: red;
+
     --secondary: 220 14.3% 95.9%;
     --secondary-foreground: 220.9 39.3% 11%;
  
@@ -56,6 +58,8 @@
  
     --primary: 210 20% 98%;
     --primary-foreground: 220.9 39.3% 11%;
+    --fallback-b3: #636ee4;
+
  
     --secondary: 215 27.9% 16.9%;
     --secondary-foreground: 210 20% 98%;
@@ -112,12 +116,13 @@
 }
 @layer components {
   .btn {
-    
+    @apply text-white;
   }
   .btn:active:focus {
     transform: scale(1)
   }
   .btn-primary {
+    /* @apply hover:bg- */
     /* @apply animate-border; */
     /* &:after {
       @apply inset-0 absolute bg-red-400;

@@ -3,11 +3,11 @@ export const DATA = {
   initials: "CA",
   url: "https://expert.github.io",
   location: "Chisinau, Moldova",
-  locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description:
     "I'm a Senior Front-End Developer specializing in building interactive and immersive web applications. My main focus is on Vue.js for front-end development, as well as Three.js and Babylon.js for creating 3D experiences and advanced visualizations on the web. I’m passionate about combining cutting-edge technologies to bring dynamic user interfaces and rich graphics to life.",
   summary:
-    "I specialize in Vue.js, Three.js, and Babylon.js to create dynamic user interfaces and immersive 3D web experiences. My focus is on delivering high-performance, visually stunning applications that drive user engagement and bring real value to clients.",
+    `I specialize in Vue.js, Three.js and Babylon.js to create dynamic user interfaces and immersive 3D web experiences. <br> My focus is on delivering high-performance, visually stunning applications that drive user engagement and bring real value to clients.`,
+  
   avatarUrl: "/assets/images/photo.jpg",
   skills: [
     "Vue.js",
@@ -18,10 +18,12 @@ export const DATA = {
     "Three.js",
     "Babylon.js",
     "Typescript",
+    "SOLID",
+    "OOP",
     "Css",
     "Html",
     "TailwindCSS",
-    "FIGMA",
+    "Figma",
     "Node.js",
     "Postgres",
     "Docker",
@@ -65,11 +67,60 @@ export const DATA = {
       }
     },
   },
+  section: {
+    about: {
+      title: "About",
+      headline: "Hi, I'm Cernobai Alexei",
+      shortTitle: "About",
+      content: [
+        {
+          title: "Programming",
+          description: "Experience in programming languages JS, specifically Typescript, ECMA2017. Very good at frameworks Vue.js, Nuxt.js, Three.js, Babylon.js, Node.js. Also experienced Figma to html coder. Soft skills such as React.js, Koa.js, PHP, Mysql, MongoDB, CMS WordPress."
+        },
+        {
+          title: "Self-development",
+          description: "During a rapid development of technologies I’m staying tuned with the latest stack, and implementing them in my pet projects or production. This means if the tools are not required to my current dev stack, I\'m open to learn and use them nowadays. Like React.js or any other tools."
+        },
+        {
+          title: "Communication",
+          description: "Ability to work alongside other people, organize time and team. Planning current workflow with Agile software development. I\'m fluently spoke on Russian and Romanian My level writing and reading of English(Intermidiate), Ukranian"
+        },
+        {
+          title: "Best practices",
+          description: "Ability to do my job at a high level standard and company requirements. OOP aproach and stayed with SOLID principles, Use tools to check my code style."
+        },
+        {
+          title: "Experience",
+          description: "10+ years as Frontend and Fullstack developer. Built websites from simple to high level of complexity. The count of them is hundreds. Also I built Product software from scratch, which uses +5k users around the world."
+        },
+      ],
+    },
+    education: {
+      title: "Education",
+      headline: "I'm have math degree",
+      shortTitle: "Education"
+    },
+    work: {
+      title: "Work Experience",
+      headline: "10+ years as Frontend and Fullstack developer",
+      shortTitle: "Experience"
+    },
+    projects: {
+      title: "My Projects",
+      headline: "Check out my latest work",
+      shortTitle: "Projects"
+    },
+    contact: {
+      title: "Contact",
+      headline: "Get in Touch",
+      shortTitle: "Contact"
+    }
+  },
 
   work: [
     {
-      company: "GameDev",
-      badges: [],
+      company: "Creative Developer",
+      badges: ["Three.js, Babylon.js, Blender"].flatMap(v => v.split(',')),
       href: "https://papaya-daffodil-3351d0.netlify.app/",
       location: "Remote",
       title: "Babylon.js | Three.js | WebGL Developer",
@@ -77,12 +128,12 @@ export const DATA = {
       start: "2023",
       end: "2024",
       description:
-        "I’m working on a game using Babylon.js and Three.js. I built a custom OOP framework to manage its structure and integrated the Havok physics engine for realistic simulations. I also implemented rigging for 3D models from Blender.",
+        "I\'m working on a game using Babylon.js and Three.js. I built a custom OOP framework to manage its structure and integrated the Havok physics engine for realistic simulations. I also implemented rigging for 3D models from Blender.",
     },
     {
       company: "TravelBusinessClass",
       href: "https://travelbusinessclass.com/",
-      badges: ["Vue3, Nuxt3, Websocket, Typescript, Tailwind CSS"].flatMap(v => v.split(',')),
+      badges: ["Vue3, Nuxt3, Typescript, Tailwind CSS, Faker"].flatMap(v => v.split(',')),
       location: "Chisinau, MD",
       title: "Vue.js | Sr. Frontend Developer",
       logoUrl: "/assets/images/tbc.jpg",
@@ -106,7 +157,7 @@ export const DATA = {
     {
       company: "Codefactory47",
       href: "https://themeforest.net/user/codefactory47",
-      badges: ["Team Leadership", "Theme Development", "PSD to Wordpress", "PSD to Wordpress", "Vue.js", "Agile Project Management", "Scrum", "Seo"],
+      badges: ["Team Leadership", "Vue.js", "Agile Project Management", "Scrum"],
       location: "Chisinau, MD",
       title: "Co-Founder",
       logoUrl: "/assets/images/codefactory47-logo.jpg",
@@ -165,10 +216,16 @@ export const DATA = {
       dates: "2023 - 2024",
       active: true,
       description:
-        "I created a game using Babylon.js and built a custom OOP framework to manage its structure. I also integrated the Havok physics engine to handle realistic physics simulations.",
+        "I created a game using Babylon.js and built a custom OOP. I also integrated the Havok physics engine to handle realistic physics simulations. Implemented AI behavior for bots, and path finding algorithms",
       technologies: [
         "Babylon.js",
         "Havok",
+        "AI",
+        "Path finding",
+        "OOP",
+        "SOLID",
+        "Functional Programming",
+        "Design Paterns"
       ],
       links: [
         {
@@ -185,6 +242,32 @@ export const DATA = {
       image: "",
       video:
         "/assets/videos/Tank Firefight 3D Online Game.mp4",
+    },
+    {
+      title: "Wealty.co",
+      href: "https://wealty.co/",
+      dates: "September 2022",
+      active: true,
+      description:
+        "Wealty is a powerful Real Estate WordPress theme that adapts to your needs. With a stunning design and easy-to-use features, you can quickly take your business to the next level without any coding knowledge.",
+      technologies: [
+        "Vue.js",
+        "WordPress",
+        "Theme Developement",
+        "Themeforest",
+        "TailwindCSS",
+        "UI/UX",
+        "Responsinves"
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://wealty.co/",
+          // icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "/assets/videos/wealty.mp4",
     },
     {
       title: "Personal Portfolio",
@@ -267,7 +350,7 @@ export const DATA = {
     {
       title: "Travellbusinessclass.com",
       href: "https://travelbusinessclass.com/",
-      dates: "September 2024",
+      dates: "September 2023",
       active: true,
       description:
         "Engineered a BackOffice CRM system tailored to facilitate the management of leads and agents.",
@@ -289,30 +372,6 @@ export const DATA = {
       video: "/assets/videos/Travelbusinessclass.mp4",
     },
     {
-      title: "Wealty.co",
-      href: "https://wealty.co/",
-      dates: "September 2024",
-      active: true,
-      description:
-        "Wealty is a powerful Real Estate WordPress theme that adapts to your needs. With a stunning design and easy-to-use features, you can quickly take your business to the next level without any coding knowledge.",
-      technologies: [
-        "Vue.js",
-        "WordPress",
-        "Theme Developement",
-        "Themeforest",
-        "TailwindCSS"
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://wealty.co/",
-          // icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "/assets/videos/wealty.mp4",
-    },
-    {
       title: "Ferienchecker.at - Events Portal",
       href: "https://ferienchecker.at/",
       dates: "2022",
@@ -320,7 +379,7 @@ export const DATA = {
       description:
         "Engaged in full stack development of an application utilizing NUXT.js and Node.js, with the Koa framework as the backbone. Encompassing a comprehensive suite of features, the application included membership user capabilities for listing publication, seamless integration of PayPal and SMS payments, email notifications, and the generation of PDF invoices.",
       technologies: [
-        "TypeScript, ECMA2017, Nuxt.js, Vue.js, Vue Routers, Eslint, Prettier, Element.ui, SSR, Nodejs, Koa.js, TypeORM, Mysql, Paypal API, CRON, PDF builder, Emails, SMS payment, Facebook Auth, JSON Web Token, Rest Api, E2E testing, PM2, NGINX"
+        "TypeScript, ECMA2017, Nuxt.js, Vue.js, Vue Routers, Eslint, Prettier, Element.ui, SSR, Nodejs, Koa.js, TypeORM, Mysql, Paypal API, CRON, PDF builder, Emails, SMS payment, Facebook Auth, JSON Web Token, REST APIs, E2E testing, PM2, NGINX"
       ].flatMap(v => v.split(',')),
       links: [
         {
@@ -338,9 +397,9 @@ export const DATA = {
       dates: "2020",
       active: true,
       description:
-        "Contributed to the creation of a top-rated and best-selling Real Estate WordPress theme, earning accolades within its category. My role encompassed crafting all frontend interfaces with an emphasis on extensive customization options and diverse variations. I undertook CSS/HTML/JS coding and seamless integration within the WordPress environment.",
+        "I have contributed to creating a top-rated and best-selling Real Estate WordPress theme, earning accolades within its category. My role encompassed crafting all front-end interfaces, emphasizing extensive customization options and diverse variations. I undertook CSS/HTML/JS coding and seamless integration within the WordPress environment.",
       technologies: [
-        "BEM, Sass, Gulp, Twitter Bootstrap, Responsiveness, PixelPerfect, Google API’s, Smarty, Trellis, Ansible, VagrantUp"
+        "BEM, Sass, Gulp, Twitter Bootstrap, Responsive Web Design, PixelPerfect, Google API\'s, Smarty, Trellis, Ansible, VagrantUp, Theme Development, PSD to Wordpress"
       ].flatMap(v => v.split(',')),
       links: [
         {

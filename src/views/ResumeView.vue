@@ -7,13 +7,13 @@
               <div 
                 class="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none mt-4"
               >
-                Hi, I'm Cernobai Alexei
+                Hi, I'm Alexei
               </div>
               <div class="flex mt-4">
                 <div 
                   class="max-w-[600px] md:text-xl" 
+                  v-html="DATA.description"
                 >
-                  {{  DATA.description }}
                 </div>
                 <Avatar class="h-32 w-32">
                   <AvatarImage :src="DATA.avatarUrl" :alt="DATA.name" />
@@ -25,23 +25,32 @@
             
           </div>
       </section>
-      <!-- <section id="about">
+      <section id="about">
         <div class="mx-auto w-full max-w-2xl space-y-2">
           <div>
-            <h2 class="text-xl font-bold">About</h2>
+            <h2 class="text-xl font-bold">{{ DATA.section.about.title }}</h2>
           </div>
           <div>
-            <div class="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
-              {{ DATA.summary }}
+            <div 
+              class="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert"
+              v-html="wrapperSummary"
+              >
+            </div>
+            <div 
+              v-for="content in DATA.section.about.content"
+              class="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert"
+              >
+              <h2 class="text-md text-white font-bold mt-4">{{ content.title  }}</h2>
+              <p class="text-sm mt-0.5">{{  content.description }}</p>
             </div>
           </div>
         </div>
-      </section> -->
+      </section>
       <section id="work">
         <div class="mx-auto w-full max-w-2xl space-y-2">
           <div class="flex min-h-0 flex-col gap-y-3">
             <div>
-              <h2 class="text-xl font-bold">Work Experience</h2>
+              <h2 class="text-xl font-bold">{{ DATA.section.work.title }}</h2>
             </div>
             <div
               v-for="(work, id) in DATA.work"
@@ -66,7 +75,7 @@
         <div class="mx-auto w-full max-w-2xl space-y-2">
           <div class="flex min-h-0 flex-col gap-y-3">
             <div>
-              <h2 class="text-xl font-bold">Education</h2>
+              <h2 class="text-xl font-bold">{{  DATA.section.education.title }}</h2>
             </div>
             <div
               v-for="education in DATA.education"
@@ -105,10 +114,10 @@
             <div class="flex flex-col items-center justify-center space-y-4 text-center">
               <div class="space-y-2">
                 <div class="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                  My Projects
+                  {{  DATA.section.projects.title }}
                 </div>
                 <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Check out my latest work
+                  {{ DATA.section.projects.headline }}
                 </h2>
                 <p class="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   I&apos;ve worked on a variety of projects, from simple
@@ -143,10 +152,10 @@
           <div>
             <div class="space-y-3">
               <div class="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                Contact
+                {{ DATA.section.contact.title }}
               </div>
               <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Get in Touch
+                {{ DATA.section.contact.headline }}
               </h2>
               <p class="mx-auto max-w-[600px] text-muted-foreground text-xs md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed text-ellipsis">
                 <!-- Here are my contacts:  -->
@@ -171,16 +180,14 @@ import ResumeCard from '@/components/ui/resume/ResumeCard.vue';
 import { Badge } from '@/components/ui/badge';
 import ProjectCard from '@/components/ui/project/ProjectCard.vue'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { GtmSupport, useGtm } from '@gtm-support/vue-gtm';
+import { wrapWordsInKbdTags  } from '@/lib/utils';
+import { computed } from 'vue';
 
+const wordsToWrap = [
+  { word: 'Vue.js', class: 'kbd kbd-xs font-bold' },
+  { word: 'Three.js', class: 'kbd kbd-xs font-bold' },
+  { word: 'Babylon.js', class: 'kbd kbd-xs font-bold' },
+]
 
-const gtm: GtmSupport | undefined = useGtm()
-gtm?.trackEvent({
-  event: 'ResumeView',
-  category: 'visits',
-  action: 'open',
-  label: 'Open ResumePage trigger',
-  value: 5000,
-  noninteraction: false,
-});
+const wrapperSummary = computed(() => wrapWordsInKbdTags(DATA.summary, wordsToWrap))
 </script>

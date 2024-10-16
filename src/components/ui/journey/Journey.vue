@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { ref, watch, computed } from "vue";
 import {
   Card,
   CardContent,
@@ -25,14 +25,8 @@ import ProjectCard from "@/components/ui/project/ProjectCard.vue";
 import { useJourneyStore } from "@/stores/journey"
 import { storeToRefs } from "pinia";
 
-// type Content = {
-//   tag: string;
-//   css?: string;
-//   value: string;
-// };
-
 const currentStep = ref(0)
-const stepper = ["About", "Education", "Experience", "Projects", "Contacts"]
+const stepper = computed(() => Object.keys(DATA.section).map((key) => DATA.section[key as keyof typeof DATA.section].shortTitle))
 const journeyStore =  useJourneyStore()
 const { setStep } = journeyStore
 const { step } = storeToRefs(journeyStore)
@@ -48,15 +42,21 @@ watch(step, (v) => {
 
 <template>
   <div class="journey pr-4 max-w-[750px] mt-32 ml-auto mr-auto">
-
     <div class="">
       <Card v-if="currentStep == 0"  class="h-auto animate-border bg-black">
         <CardHeader>
-          <CardTitle>About</CardTitle>
-          <CardDescription class="card-title">Hi, I'm Cernobai Alexei</CardDescription>
+          <CardTitle>{{ DATA.section.about.title }}</CardTitle>
+          <CardDescription class="card-title">{{ DATA.section.about.headline }}</CardDescription>
         </CardHeader>
         <CardContent>
           {{ DATA.summary }}
+          <div 
+              v-for="content in DATA.section.about.content"
+              class="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert"
+              >
+              <h2 class="text-md text-white font-bold mt-4">{{ content.title  }}</h2>
+              <p class="text-sm mt-0.5">{{  content.description }}</p>
+          </div>
         </CardContent>
         <CardFooter class="flex-wrap gap-2">
           Skills:
@@ -66,8 +66,8 @@ watch(step, (v) => {
       </Card>
       <Card v-if="currentStep == 1" class="h-auto animate-border bg-black">
         <CardHeader>
-          <CardTitle>Education</CardTitle>
-          <CardDescription class="card-title">Hi, I'm Alexei</CardDescription>
+          <CardTitle>{{ DATA.section.education.title }}</CardTitle>
+          <CardDescription class="card-title">{{ DATA.section.education.headline }}</CardDescription>
         </CardHeader>
         <CardContent class="grid grid-cols-1 space-y-4 overflow-scroll">
           <div
@@ -89,8 +89,8 @@ watch(step, (v) => {
       </Card>
       <Card v-if="currentStep == 2" class="h-auto  animate-border bg-black">
         <CardHeader>
-          <CardTitle>Work Experience</CardTitle>
-          <CardDescription class="card-title">Hi, I'm Alexei</CardDescription>
+          <CardTitle>{{ DATA.section.work.title }}</CardTitle>
+          <CardDescription class="card-title">{{ DATA.section.work.headline }}</CardDescription>
         </CardHeader>
         <CardContent class="overflow-y-auto max-h-72">
           <div class="grid grid-cols-1 gap-4">
@@ -116,8 +116,8 @@ watch(step, (v) => {
       </Card>
       <Card v-if="currentStep == 3" class="h-auto animate-border bg-black">
         <CardHeader>
-          <CardTitle>My Projects</CardTitle>
-          <CardDescription class="card-title">Check out my latest work</CardDescription>
+          <CardTitle>{{ DATA.section.projects.title }}</CardTitle>
+          <CardDescription class="card-title">{{ DATA.section.projects.headline }}</CardDescription>
         </CardHeader>
         <CardContent class="overflow-auto max-h-72">
           <div class="grid grid-cols-1 gap-4 ">
@@ -144,8 +144,8 @@ watch(step, (v) => {
       </Card>
       <Card v-if="currentStep == 4" class="h-auto animate-border bg-black">
         <CardHeader>
-          <CardTitle>Contact</CardTitle>
-          <CardDescription class="card-title">Get in Touch</CardDescription>
+          <CardTitle>{{ DATA.section.contact.title }}</CardTitle>
+          <CardDescription class="card-title">{{ DATA.section.contact.headline }}</CardDescription>
         </CardHeader>
         <CardContent>
           <p class="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">

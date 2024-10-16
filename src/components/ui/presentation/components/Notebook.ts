@@ -25,6 +25,9 @@ const createVideoTexture = () => {
 
   videoTexture.colorSpace = THREE.SRGBColorSpace;
 
+  videoTexture.minFilter = THREE.LinearFilter
+  videoTexture.magFilter = THREE.LinearFilter
+
   videoTexture.needsUpdate = true;
   // Ensure the video plays
   video.play();
@@ -72,6 +75,7 @@ const initializeNotebook = (scene: THREE.Scene, store: StoreGeneric) => {
         if (child.name === 'Display') {
           // child.rotation.z = Math.PI / 2
           displayMesh = child
+          // child.position.add(new THREE.Vector3(1, 1, 1))
           // @ts-expect-error
           child.material = createVideoMaterial(videoTexture)
         }
