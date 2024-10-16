@@ -1,6 +1,6 @@
 <template>
   <Card 
-  class="flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full"
+  class="flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full print:break-inside-avoid"
   @mouseenter="cardHover"
   >
     <a v-if="!hidePreview" :href="href || '#'" target="_blank" class="block cursor-pointer">
@@ -41,7 +41,7 @@
           <Badge
             v-for="(tag, index) in tags"
             :key="index"
-            class="px-4 py-2 text-[12px]"
+            class="px-4 py-2 text-[12px] print:text-black print:px-1 print:py-0"
             variant="secondary"
           >
             {{ tag }}

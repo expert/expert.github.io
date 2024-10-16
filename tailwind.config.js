@@ -99,6 +99,7 @@ module.exports = {
         // 'gradient-border': "conic-gradient(#00fa00, #c084fc, #ff5d7b, #00fa00)"
       }
     },
+ 
   },
   plugins: [animate, require('daisyui')],
 }

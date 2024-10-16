@@ -5,13 +5,13 @@
           <div class="gap-2 flex justify-between">
             <div class="flex-col flex flex-1 space-y-1.5">
               <div 
-                class="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none mt-4"
+                class="text-3xl font-bold print:text-black tracking-tighter sm:text-5xl xl:text-6xl/none mt-4"
               >
                 Hi, I'm Alexei
               </div>
               <div class="flex mt-4">
                 <div 
-                  class="max-w-[600px] md:text-xl" 
+                  class="max-w-[600px] md:text-xl pr-4 print:text-black" 
                   v-html="DATA.description"
                 >
                 </div>
@@ -28,11 +28,11 @@
       <section id="about">
         <div class="mx-auto w-full max-w-2xl space-y-2">
           <div>
-            <h2 class="text-xl font-bold">{{ DATA.section.about.title }}</h2>
+            <h2 class="text-xl font-bold print:text-black">{{ DATA.section.about.title }}</h2>
           </div>
           <div>
             <div 
-              class="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert"
+              class="prose max-w-full text-pretty font-sans text-sm text-muted-foreground print:text-black dark:prose-invert"
               v-html="wrapperSummary"
               >
             </div>
@@ -40,8 +40,8 @@
               v-for="content in DATA.section.about.content"
               class="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert"
               >
-              <h2 class="text-md text-white font-bold mt-4">{{ content.title  }}</h2>
-              <p class="text-sm mt-0.5">{{  content.description }}</p>
+              <h2 class="text-md text-white print:text-black font-bold mt-4">{{ content.title  }}</h2>
+              <p class="text-sm mt-0.5 print:text-black">{{ content.description }}</p>
             </div>
           </div>
         </div>
@@ -72,7 +72,7 @@
         </div>
       </section>
       <section id="education">
-        <div class="mx-auto w-full max-w-2xl space-y-2">
+        <div class="mx-auto w-full max-w-2xl space-y-2 print:break-inside-avoid">
           <div class="flex min-h-0 flex-col gap-y-3">
             <div>
               <h2 class="text-xl font-bold">{{  DATA.section.education.title }}</h2>
@@ -95,12 +95,12 @@
       </div>
       </section>
       <section id="skills">
-        <div class="mx-auto w-full max-w-2xl space-y-2">
+        <div class="mx-auto w-full max-w-2xl space-y-2 print:break-inside-avoid">
           <div class="flex min-h-0 flex-col gap-y-3">
             <div>
               <h2 class="text-xl font-bold">Skills</h2>
             </div>
-            <div class="flex flex-wrap gap-1">
+            <div class="flex flex-wrap gap-1 print:gap-0">
               <div v-for="skill in DATA.skills" :key="skill">
                 <Badge>{{ skill }}</Badge>
               </div>
@@ -109,7 +109,7 @@
         </div>
       </section>
      <section id="projects">
-        <div class="space-y-12 w-full py-12">
+        <div class="space-y-12 w-full py-12 print:break-inside-avoid">
           <div>
             <div class="flex flex-col items-center justify-center space-y-4 text-center">
               <div class="space-y-2">
@@ -148,7 +148,7 @@
         </div>
       </section>
       <section id="contact">
-        <div class="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
+        <div class="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12 print:break-inside-avoid">
           <div>
             <div class="space-y-3">
               <div class="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
@@ -162,7 +162,7 @@
                 <dl v-for="contact of DATA.contact.social">
                   <dt>{{ contact.name }}:</dt>
                   <dd> 
-                    <a :href="contact.url" class="underline text-primary "  target="_blank">{{ contact.url.replace('mailto:', '') }}</a> 
+                    <a :href="contact.url" class="underline text-primary print:text-primary-foreground"  target="_blank">{{ contact.url.replace('mailto:', '') }}</a> 
                   </dd>
                 </dl>
                 

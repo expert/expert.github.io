@@ -1,6 +1,6 @@
 <template>
 <a :href="href || '#'" target="_blank" class="block cursor-pointer">
-    <Card class="flex pb-6">
+    <Card class="flex pb-6 print:break-inside-avoid">
       <div class="flex-none pt-6 pl-6">
         <Avatar class="border size-12 m-auto bg-muted-background dark:bg-foreground">
           <AvatarImage :src="logoUrl" :alt="altText" class="object-contain" />
@@ -17,7 +17,7 @@
                   v-for="(badge, index) in badges"
                   :key="index"
                   variant="secondary"
-                  class="align-middle text-xs"
+                  class="align-middle text-xs print:text-black print:px-1 print:py-0"
                 >
                   {{ badge }}
                 </Badge>

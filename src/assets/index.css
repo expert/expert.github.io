@@ -76,11 +76,13 @@
  
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border ;
+    @apply print:text-black
   }
   body {
     @apply bg-background text-foreground;
-   }
+    @apply print:text-black
+  }
   @property --angle {
     syntax: "<angle>";
     initial-value: 0deg;
