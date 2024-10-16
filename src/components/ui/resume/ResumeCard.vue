@@ -1,6 +1,6 @@
 <template>
 <a :href="href || '#'" target="_blank" class="block cursor-pointer">
-    <Card class="flex pb-6 print:break-inside-avoid">
+    <Card class="flex pb-6 print:break-inside-avoid print:shadow-none print:border-gray-300">
       <div class="flex-none pt-6 pl-6">
         <Avatar class="border size-12 m-auto bg-muted-background dark:bg-foreground">
           <AvatarImage :src="logoUrl" :alt="altText" class="object-contain" />

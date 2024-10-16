@@ -1,6 +1,6 @@
 <template>
   <Card 
-  class="flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full print:break-inside-avoid"
+  class="flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full print:break-inside-avoid  print:shadow-none print:border-gray-300"
   @mouseenter="cardHover"
   >
     <a v-if="!hidePreview" :href="href || '#'" target="_blank" class="block cursor-pointer">
