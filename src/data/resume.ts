@@ -4,32 +4,14 @@ export const DATA = {
   url: "https://expert.github.io",
   location: "Chisinau, Moldova",
   description:
-    "I'm a Senior Front-End Developer specializing in building interactive and immersive web applications. My main focus is on Vue.js for front-end development, as well as Three.js and Babylon.js for creating 3D experiences and advanced visualizations on the web. I’m passionate about combining cutting-edge technologies to bring dynamic user interfaces and rich graphics to life.",
+    "I'm a Senior Front-End Developer with a focus on creating immersive and interactive web applications. My core expertise lies in Vue.js for modern front-end development and Three.js/Babylon.js for crafting rich 3D experiences and advanced visualizations. I'm driven by a passion for blending cutting-edge technology to create visually engaging and high-performance user interfaces.",
   summary:
-    `I specialize in Vue.js, Three.js and Babylon.js to create dynamic user interfaces and immersive 3D web experiences. <br> My focus is on delivering high-performance, visually stunning applications that drive user engagement and bring real value to clients.`,
-  
+    `I specialize in Vue.js, Three.js, and Babylon.js to develop dynamic user interfaces and immersive 3D web applications. My goal is to deliver high-performance, visually stunning projects that drive engagement and create tangible value for clients.`,
   avatarUrl: "/assets/images/photo.jpg",
   skills: [
-    "Vue.js",
-    "Nuxt.js",
-    "Pinia",
-    "Vuex",
-    "WebGL",
-    "Three.js",
-    "Babylon.js",
-    "Typescript",
-    "SOLID",
-    "OOP",
-    "Css",
-    "Html",
-    "TailwindCSS",
-    "Figma",
-    "Node.js",
-    "Postgres",
-    "Docker",
-    "Mysql",
-    "WordPress",
-    "UI/UX"
+    "Vue.js", "Nuxt.js", "Pinia", "Vuex", "WebGL", "Three.js", "Babylon.js", "Typescript", "SOLID", "OOP", 
+    "CSS", "HTML", "TailwindCSS", "Twitter Bootstrap", "UI/UX", "BEM", "Figma", "Vite", "Webpack", "Node.js", 
+    "Postgres", "Docker", "MySQL", "Git", "Linux", "Nginx", "WordPress", "Agile"
   ],
   contact: {
     email: "alexei.cernobai@gmail.com",
@@ -75,39 +57,41 @@ export const DATA = {
       content: [
         {
           title: "Programming",
-          description: "Experience in programming languages JS, specifically Typescript, ECMA2017. Very good at frameworks Vue.js, Nuxt.js, Three.js, Babylon.js, Node.js. Also experienced Figma to html coder. Soft skills such as React.js, Koa.js, PHP, Mysql, MongoDB, CMS WordPress."
-        },
+          description:  "Experienced in JavaScript, particularly TypeScript and ECMAScript 2017. Highly proficient with Vue.js, Nuxt.js, Three.js, Babylon.js, and Node.js. Additionally, skilled in converting Figma designs into responsive web pages. I have hands-on experience with React.js, Koa.js, PHP, and databases like MySQL and MongoDB."
+        },             
         {
           title: "Self-development",
-          description: "During a rapid development of technologies I’m staying tuned with the latest stack, and implementing them in my pet projects or production. This means if the tools are not required to my current dev stack, I\'m open to learn and use them nowadays. Like React.js or any other tools."
+          description: "I stay up-to-date with the rapid development of technology and incorporate new tools into my projects. Even if certain technologies aren't part of my current stack, I am always open to learning and applying them, such as React.js or other modern tools."
+      
         },
         {
           title: "Communication",
-          description: "Ability to work alongside other people, organize time and team. Planning current workflow with Agile software development. I\'m fluently spoke on Russian and Romanian My level writing and reading of English(Intermidiate), Ukranian"
+          description: "I thrive in team settings, organizing workflow with Agile methodologies. Fluent in Russian and Romanian, with intermediate proficiency in English (writing and reading) and Ukrainian."
+        
         },
         {
           title: "Best practices",
-          description: "Ability to do my job at a high level standard and company requirements. OOP aproach and stayed with SOLID principles, Use tools to check my code style."
+          description: "I adhere to high standards in my work, ensuring it aligns with company requirements. I apply OOP principles and follow SOLID guidelines. I also use code style checkers to maintain high-quality code."
         },
         {
           title: "Experience",
-          description: "10+ years as Frontend and Fullstack developer. Built websites from simple to high level of complexity. The count of them is hundreds. Also I built Product software from scratch, which uses +5k users around the world."
+          description:  "With over 10 years of experience as a Frontend and Fullstack developer, I've built hundreds of websites and projects ranging from simple to highly complex. Additionally, I've developed software products used by over 5,000 users worldwide."
         },
       ],
     },
     education: {
       title: "Education",
-      headline: "I'm have math degree",
+      headline: "Math and Programming Degree",
       shortTitle: "Education"
     },
     work: {
       title: "Work Experience",
-      headline: "10+ years as Frontend and Fullstack developer",
+      headline: "10+ Years of Frontend and Fullstack Development",
       shortTitle: "Experience"
     },
     projects: {
       title: "My Projects",
-      headline: "Check out my latest work",
+      headline: "Check out My Latest Work",
       shortTitle: "Projects"
     },
     contact: {
@@ -128,20 +112,20 @@ export const DATA = {
       start: "2023",
       end: "2024",
       description:
-        "I\'m working on a game using Babylon.js and Three.js. I built a custom OOP framework to manage its structure and integrated the Havok physics engine for realistic simulations. I also implemented rigging for 3D models from Blender.",
-    },
+        "Working on a game project using Babylon.js and Three.js. Built a custom OOP framework and integrated the Havok physics engine for realistic physics simulations. Also implemented rigging for 3D models exported from Blender."
+      },
     {
       company: "TravelBusinessClass",
       href: "https://travelbusinessclass.com/",
-      badges: ["Vue3, Nuxt3, Typescript, Tailwind CSS, Faker"].flatMap(v => v.split(',')),
+      badges: ["Vue3, Nuxt3, Typescript, Tailwind CSS"].flatMap(v => v.split(',')),
       location: "Chisinau, MD",
-      title: "Vue.js | Sr. Frontend Developer",
+      title: "Vue.js | Senior Frontend Developer",
       logoUrl: "/assets/images/tbc.jpg",
       start: "2022",
       end: "2023",
       description:
-        "Developed a CRM system specifically designed to streamline the management of leads and agents.",
-    },
+        "Developed a CRM system designed to streamline the management of leads and agents, providing efficient and scalable solutions."
+      },
     {
       company: "Bullyentertainment",
       href: "https://bullyentertainment.com/",
@@ -152,20 +136,20 @@ export const DATA = {
       start: "2020",
       end: "2022",
       description:
-        "I specialize as a front-end developer, focusing on building applications with Three.js and WebXR technologies.",
-    },
+        "Focused on front-end development, creating applications with Three.js and WebXR technologies for immersive experiences."
+      },
     {
       company: "Codefactory47",
       href: "https://themeforest.net/user/codefactory47",
-      badges: ["Team Leadership", "Vue.js", "Agile Project Management", "Scrum"],
+      badges: ["Team Leadership", "Agile Project Management"],
       location: "Chisinau, MD",
       title: "Co-Founder",
       logoUrl: "/assets/images/codefactory47-logo.jpg",
       start: "2016",
       end: "2020",
       description:
-        "As a co-founder and author on the Themeforest Marketplace, I held the position of creating highly customizable, flexible, and contemporary templates and themes for a global user base. My primary focus encompassed the design, development, and meticulous testing of UX/UI components.",
-    },
+        "As a co-founder and author on the Themeforest Marketplace, I created highly customizable and contemporary themes. My role focused on design, development, and thorough testing of UX/UI components."
+      },
     {
       company: "Est Computers",
       href: "https://estcomputer.com/",
@@ -176,8 +160,8 @@ export const DATA = {
       start: "2015",
       end: "2016",
       description:
-        "Developed UI components for an extensive application using Ext.js, customized for a Medical Health service. Collaborated with global teams.",
-    },
+        "Developed UI components for a medical service application using Ext.js, working closely with international teams to ensure seamless integration."
+     },
     {
       company: "Think Software (Hugsandi Menn)",
       href: "https://thinksoftware.co.uk/",
@@ -188,20 +172,20 @@ export const DATA = {
       start: "2010",
       end: "2015",
       description:
-        "As a CSS/HTML/JS developer, I specialize in creating dynamic websites tailored for Real Estate agencies. I proficiently translate PSD designs into HTML and seamlessly integrate them into backend CMS and frameworks. My expertise extends to working with CMS platforms like MODX and WordPress, as well as frameworks including Kohana, Zend, and Symfony. I am also well-versed in template languages like Twig and Smarty.",
-    }
+        "Specialized in CSS/HTML/JS development for Real Estate websites. Converted PSD designs into HTML, integrated them with backend CMS like MODX and WordPress, and worked with frameworks like Kohana and Symfony."
+      }
   ],
   education: [
     {
       school: "Academy of Economic Studies of Moldova",
       href: "https://ase.md/",
-      degree: "IT Inginer and Specialist of Economic Cybernetics, Statistics and Informatics",
+      degree: "IT Engineer and Specialist in Economic Cybernetics, Statistics, and Informatics",
       logoUrl: "/assets/images/logo-asem.png",
       start: "2007",
       end: "2011",
     },
     {
-      school: "School s.Maximovca, r. Anenii Noi (MD),",
+      school: "School S. Maximovca, Anenii Noi (MD)",
       degree: "Grades 1 - 11",
       logoUrl: "",
       start: "1996",
@@ -216,16 +200,16 @@ export const DATA = {
       dates: "2023 - 2024",
       active: true,
       description:
-        "I created a game using Babylon.js and built a custom OOP. I also integrated the Havok physics engine to handle realistic physics simulations. Implemented AI behavior for bots, and path finding algorithms",
+        "Developed an immersive 3D game using Babylon.js, incorporating a custom OOP framework and the Havok physics engine for realistic simulations. Implemented advanced AI behavior for bots and pathfinding algorithms to enhance gameplay dynamics.",
       technologies: [
         "Babylon.js",
         "Havok",
         "AI",
-        "Path finding",
+        "Pathfinding",
         "OOP",
         "SOLID",
         "Functional Programming",
-        "Design Paterns"
+        "Design Patterns"
       ],
       links: [
         {
@@ -246,18 +230,18 @@ export const DATA = {
     {
       title: "Wealty.co",
       href: "https://wealty.co/",
-      dates: "September 2022",
+      dates: "September 2019",
       active: true,
       description:
-        "Wealty is a powerful Real Estate WordPress theme that adapts to your needs. With a stunning design and easy-to-use features, you can quickly take your business to the next level without any coding knowledge.",
+        "Designed and implemented a visually stunning theme with various component variations. Integrated multiple APIs and developed a custom user dashboard, ensuring a seamless user experience.",
       technologies: [
         "Vue.js",
         "WordPress",
-        "Theme Developement",
+        "Theme Development",
         "Themeforest",
         "TailwindCSS",
         "UI/UX",
-        "Responsinves"
+        "Responsive Design"
       ],
       links: [
         {
@@ -275,7 +259,7 @@ export const DATA = {
       dates: "September 2024",
       active: true,
       description:
-        "Designed, developed personal portfolio.",
+        "Created a personal portfolio featuring cutting-edge design and 3D visualizations, showcasing skills in Three.js, WebGL, and advanced front-end technologies.",
       technologies: [
         "Three.js",
         "WebGL",
@@ -306,8 +290,8 @@ export const DATA = {
       dates: "2022",
       active: true,
       description:
-        "Crafted a WebXR application featuring immersive 3D world experiences.",
-      technologies: [
+        "Developed a WebXR application providing immersive 3D world experiences. The app was also shipped as an Web app, offering a stunning user experience.",
+     technologies: [
         "Three.js",
         "Aframe.io",
         "WebXR",
@@ -329,7 +313,7 @@ export const DATA = {
       dates: "2020",
       active: true,
       description:
-        "Developed an application that showcases interactive web content on iOS.",
+        "Developed an iOS app showcasing interactive web content with real-time dynamic visualizations using Three.js and Vue.js.",
       technologies: [
         "Three.js",
         "Vue.js",
@@ -353,7 +337,7 @@ export const DATA = {
       dates: "September 2023",
       active: true,
       description:
-        "Engineered a BackOffice CRM system tailored to facilitate the management of leads and agents.",
+        "Engineered a BackOffice CRM system for managing leads and agents, integrating real-time communication features using WebSocket and providing a seamless user experience.",
       technologies: [
         "Vue3",
         "Nuxt3",
@@ -377,8 +361,8 @@ export const DATA = {
       dates: "2022",
       active: true,
       description:
-        "Engaged in full stack development of an application utilizing NUXT.js and Node.js, with the Koa framework as the backbone. Encompassing a comprehensive suite of features, the application included membership user capabilities for listing publication, seamless integration of PayPal and SMS payments, email notifications, and the generation of PDF invoices.",
-      technologies: [
+        "Led the full-stack development of a feature-rich membership site using Nuxt.js and Koa.js. Integrated PayPal and SMS payments, email notifications, and dynamic PDF invoice generation for users.",
+    technologies: [
         "TypeScript, ECMA2017, Nuxt.js, Vue.js, Vue Routers, Eslint, Prettier, Element.ui, SSR, Nodejs, Koa.js, TypeORM, Mysql, Paypal API, CRON, PDF builder, Emails, SMS payment, Facebook Auth, JSON Web Token, REST APIs, E2E testing, PM2, NGINX"
       ].flatMap(v => v.split(',')),
       links: [
@@ -397,8 +381,8 @@ export const DATA = {
       dates: "2020",
       active: true,
       description:
-        "I have contributed to creating a top-rated and best-selling Real Estate WordPress theme, earning accolades within its category. My role encompassed crafting all front-end interfaces, emphasizing extensive customization options and diverse variations. I undertook CSS/HTML/JS coding and seamless integration within the WordPress environment.",
-      technologies: [
+        "Contributed to the development of a top-rated real estate WordPress theme, focusing on creating customizable front-end interfaces and seamless WordPress integration.",
+    technologies: [
         "BEM, Sass, Gulp, Twitter Bootstrap, Responsive Web Design, PixelPerfect, Google API\'s, Smarty, Trellis, Ansible, VagrantUp, Theme Development, PSD to Wordpress"
       ].flatMap(v => v.split(',')),
       links: [

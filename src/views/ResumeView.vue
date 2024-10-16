@@ -21,9 +21,9 @@
                 </Avatar>
               </div>
             </div>
-            </div>
-            
           </div>
+          
+        </div>
       </section>
       <section id="about">
         <div class="mx-auto w-full max-w-2xl space-y-2">
