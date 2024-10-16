@@ -10,6 +10,13 @@ import { useJourneyStore  } from "./stores/journey";
 const  { setStep } = useJourneyStore()
 const restartScene = () => {
   setStep(0)
+  triggerResize()
+}
+
+const triggerResize = () => {
+  setTimeout(() => {
+    window.dispatchEvent(new Event('resize'));
+  }, 50)
 }
 
 </script>
@@ -22,7 +29,7 @@ const restartScene = () => {
         <RouterLink class="text-white text-lg" to="/" @click="restartScene">Presentation</RouterLink>
       </NavigationMenuItem>
       <NavigationMenuItem>
-        <RouterLink class="text-white text-lg" to="/resume">Resume</RouterLink>
+        <RouterLink class="text-white text-lg" to="/resume" @click="triggerResize">Resume</RouterLink>
       </NavigationMenuItem>
     </NavigationMenuList>
   </NavigationMenu>
@@ -31,24 +38,3 @@ const restartScene = () => {
   </main>
 
 </template>
-
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-@media print {
-  .menu {
-    display: none;
-  }
-  
-}
-</style>

@@ -12,6 +12,7 @@ import { initializeCamera, animateCamera } from './components/Camera';
 import { animateNotebook, initializeNotebook } from './components/Notebook';
 import { initializeSmartphone, animateSmartphone } from './components/Smartphone';
 import { useJourneyStore  } from '@/stores/journey';
+import router from '@/router';
 
 const registerComponent = <T>(init: () => T, animate: (component: T, time: number) => void) => {
 	const component = init();
@@ -20,20 +21,38 @@ const registerComponent = <T>(init: () => T, animate: (component: T, time: numbe
 	};
 };
 
+const windowSize = () => {
+	const htmlTag = document.querySelector('html')
+	return htmlTag ? {
+		width: () => htmlTag.clientWidth,
+		height: () => htmlTag.clientHeight
+	} 
+	: undefined
+}
+
 export const initialize = (elRef: Ref, store: typeof useJourneyStore) => {
 	const scene = new THREE.Scene();
 	const journeyStore = store()
+	const getSize = windowSize()
 
 	const renderer = new THREE.WebGLRenderer({ antialias: true });
-	renderer.setSize( window.innerWidth, window.innerHeight );
+	if(getSize) {
+		setTimeout(() => {
+			renderer.setSize( getSize.width(), getSize.height() );
+		}, 100)
+	}
 
 	window.addEventListener("resize", onWindowResize, false);
+	window.addEventListener("hashchange", onWindowResize, false)
 
 	function onWindowResize() {
-		camera.aspect = window.innerWidth / window.innerHeight;
+		if(!getSize) {
+			return
+		}
+		camera.aspect = getSize.width() / getSize.height();
 		camera.updateProjectionMatrix();
 
-		renderer.setSize(window.innerWidth, window.innerHeight);
+		renderer.setSize(getSize.width(), getSize.height());
 	}
 
 	elRef.value.appendChild( renderer.domElement );
