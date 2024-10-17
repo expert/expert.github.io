@@ -23,6 +23,7 @@ watch(video, () => {
       <div ref="canvas" class=" h-full w-full"></div>
   </div>
   <!-- HTML: Create a video element -->
+  
   <video ref="videoTag" id="video" style="display: none;" autoplay loop muted playsinline>
     <source :src="video" type="video/mp4">
     Your browser does not support the video tag.

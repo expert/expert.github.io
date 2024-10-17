@@ -57,7 +57,7 @@ export const DATA = {
       content: [
         {
           title: "Programming",
-          description:  "Experienced in JavaScript, particularly TypeScript and ECMAScript 2017. Highly proficient with Vue.js, Nuxt.js, Three.js, Babylon.js, and Node.js. Additionally, skilled in converting Figma designs into responsive web pages. I have hands-on experience with React.js, Koa.js, PHP, and databases like MySQL and MongoDB."
+          description:  "Experienced in JavaScript, particularly TypeScript and ECMAScript. Highly proficient with Vue.js, Nuxt.js, Three.js, Babylon.js, and Node.js. Additionally, skilled in converting Figma designs into responsive web pages. I have hands-on experience with React.js, Koa.js, PHP, and databases like MySQL and MongoDB."
         },             
         {
           title: "Self-development",
@@ -378,7 +378,7 @@ export const DATA = {
     {
       title: "Realtyspace - Real estate WordPress Theme",
       href: "https://realtyspace.codefactory47.com/",
-      dates: "2020",
+      dates: "2017",
       active: true,
       description:
         "Contributed to the development of a top-rated real estate WordPress theme, focusing on creating customizable front-end interfaces and seamless WordPress integration.",

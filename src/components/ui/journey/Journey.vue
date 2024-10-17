@@ -48,7 +48,7 @@ watch(step, (v) => {
           <CardTitle>{{ DATA.section.about.title }}</CardTitle>
           <CardDescription class="card-title">{{ DATA.section.about.headline }}</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent class="overflow-y-auto max-h-72">
           {{ DATA.summary }}
           <div 
               v-for="content in DATA.section.about.content"
